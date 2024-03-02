@@ -24,7 +24,7 @@ SECRET_KEY = '$Hw730bXzQ}llQL2@6x^JhwmF6Unx1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000', 'http://127.0.0.1:8000/', 'geekhaven.herokuapp.com/', 'geekhaven-ab6b47c83d52.herokuapp.com/',]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000', 'geekhaven.herokuapp.com/', 'geekhaven-ab6b47c83d52.herokuapp.com/']
 
 # Application definition
 
