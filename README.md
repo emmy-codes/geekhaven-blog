@@ -180,27 +180,29 @@ Once the app was made I went to my dashboard where I can see my apps.
 
 6. Clicked on the relevant app
 
-CHANGE SCREENSHOT
-![heroku_deployment_step_6](https://github.com/emmy-codes/cat-adventures-python/assets/70635859/ebe871b8-64df-4c9d-b99a-70055232481b)
+![heroku_deployment_step_6](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/e6648e64-446c-4832-929f-3f7477c236b6)
 
 
-7-8. From here, I went to settings, then to the Config Vars. I added the PORT key and a value of 8000. This was a requirement by Code Institute to ensure there were no issues caused by _not_ having it.
+7-8. From here, I went to settings, then to the Config Vars. I added the key of DISABLE_COLLECTSTATIC and gave it a value of 1.
 
-9. I then went to Buildpacks and added Python, and then NodeJS.
+![heroku deployment step 7-8](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/9c3eaeaa-f2a4-48f2-8438-39ae5cfffa0b)
 
-CHANGE SCREENSHOT
-![heroku_deployment_step_7-9](https://github.com/emmy-codes/cat-adventures-python/assets/70635859/239b3b7c-432c-4f16-8437-ef5965079b3e)
+9. I then had to prepare my code for deployment. Back in VSCode I installed the following gunicorn version and added it to my requirements.txt file:
 
+![deployment step 9](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/55bf05d5-8451-4d27-95ef-f97b50d5b65b)
+
+10. After that, I created a Procfile in the root directory and added my blogpage file directory to the Gunicorn WSGI:
+
+![deployment_step_10](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/05cd3c9a-f252-4d98-a6c5-9400a6338c4b)
+
+11. In order to keep my files safe when deployed, in my settings I changed DEBUG to False to prevent excessive information being shown when errors occurred which could potentially give people unwanted access. I then updated my ALLOWED_HOSTS list to include my Heroku deployment links.
+12. Back on Heroku I switched to the Deployment tab and connected Github as the Deployment method. I searched my repository name and connected it.
+
+![deployment_step_12](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/aba54a9b-9436-4ad9-9e1c-6985be01cdce)
+
+13. Scrolling down the page, I chose to manually deploy my project as needed, but it's possible to set up automatic deployments if preferred.
   
-
-10. Then I clicked the Deploy tab. Here I connected my GitHub account with the repository the deployment is to select.
-
-11. After that, I chose to manually deploy my project as needed, but it's possible to set up automatic deployments if preferred.
-  
-CHANGE SCREENSHOT
-![heroku_deployment_step_10-11](https://github.com/emmy-codes/cat-adventures-python/assets/70635859/4632f3e9-ed0a-428b-aee0-b7c1f42eef55)
-
-
+![heroku_deployment_step_13](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/fed29cb2-9af8-4d0d-a827-ef493390b716)
 
   
 
