@@ -185,7 +185,8 @@ Once the app was made I went to my dashboard where I can see my apps.
 
 7-8. From here, I went to settings, then to the Config Vars. I added the key of DISABLE_COLLECTSTATIC and gave it a value of 1.
 
-![heroku deployment step 7-8](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/9c3eaeaa-f2a4-48f2-8438-39ae5cfffa0b)
+![deployment_step_7-8](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/5e1a7d4f-3a96-42b5-bda3-464fbf8cd907)
+
 
 9. I then had to prepare my code for deployment. Back in VSCode I installed the following gunicorn version and added it to my requirements.txt file:
 
