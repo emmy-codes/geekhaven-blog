@@ -6,9 +6,9 @@ from cloudinary.models import CloudinaryField
 PUBLISHED_STATUS = ((0, 'Draft'), (1, 'Published'))
 
 class BlogPost(models.Model):
-    blog_header = models.CharField(max_length=250, unique=True)
-    header_image = CloudinaryField('image', default='placeholder')
-    slug = models.SlugField(max_length=250, unique=True)
+    blog_heading = models.CharField(max_length=250, unique=True)
+    heading_image = CloudinaryField('image', default='placeholder')
+    url_slug = models.SlugField(max_length=250, unique=True)
     blog_published_status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
     blog_content = models.TextField(default='')
     creation_date = models.DateTimeField(auto_now_add=True)
