@@ -15,4 +15,5 @@ class BlogPost(models.Model):
     blog_author = models.ForeignKey( # stores ref to the User that is the author of the post.
         User, on_delete=models.CASCADE, related_name='blog_posts'
     )
-    blog_likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    blog_likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)  # blank=True means the field is not required
+    blog_excerpt = models.TextField(default='', blank=True)  # to give a preview text on the post icons on the main page
