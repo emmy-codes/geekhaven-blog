@@ -10,7 +10,7 @@ class BlogPost(models.Model):
     header_image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=250, unique=True)
     blog_published_status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
-    blog_content = models.TextField
+    blog_content = models.TextField(default='')
     creation_date = models.DateTimeField(auto_now_add=True)
     blog_author = models.ForeignKey( # stores ref to the User that is the author of the post.
         User, on_delete=models.CASCADE, related_name='blog_posts'
