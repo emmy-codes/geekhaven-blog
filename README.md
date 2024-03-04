@@ -147,6 +147,19 @@ Python
 
 Here I will take you through some of my thought processes and first iterations of code to help see my learning and problem solving process.
 
+I did a mix of utilizing the information from Code Institute's "I think therefore I blog" material, and trying to do it myself to see how much I'd learned. 
+
+One of the first issues I encountered was setting up my blog post class. After a few hiccups everything migrated correctly and I could access the admin panel and see the button to add a blog post. I went in, only to realise that I had no field for the bulk of my blog content.
+
+![bug_1_no_blog_content](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ce42cb49-2526-4a9b-8940-d26f8df47ba2)
+
+I checked my class on models.py - there was my blog_content attribute! But it wasn't showing up on the admin panel... so I checked my migration 0001_initial.py and checked what had been migrated.
+No blog_post.
+This lead me to do a quick check and yes, it was mean to have brackets on the end of my TextField type. A small error that wasn't picked up in any code compiling but still caused an undesired result. All it took was a () (and a default parameter) and a new migration to fix!
+
+![bug1 textfield issue](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c83d2c81-8ba1-41cd-b070-1a35f1f42c7f)
+
+
 - - -
 
 ## Deployment & Local Development
