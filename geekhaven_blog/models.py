@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 PUBLISHED_STATUS = ((0, 'Draft'), (1, 'Published'))
 
-class BlogPosts(models.Model):
+class BlogPost(models.Model):
     blog_header = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
     blog_published_status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
