@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000', 'geekhaven.herokuapp.com', 'geekhaven-ab6b47c83d52.herokuapp.com']
 
+# allows admin to create blog content on deployed site
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.herokuapp.com'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -69,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'geekhaven.wsgi.application'
 
-# Database
+# Database - os.environ.get gets the value from env.py with the variable DATABASE_URL
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
