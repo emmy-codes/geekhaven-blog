@@ -21,7 +21,8 @@ class BlogPost(models.Model):
 
 
 class BlogComment(models.Model):
-    comment_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
-    comment_body = models.TextField(default='', blank=True)
-    comment_approved = False
-    comment_which_post = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_comment')
+    comment_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_commenter')
+    comment_body = models.TextField(default='')
+    comment_approved = models.BooleanField(default=False)
+    comment_which_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='post_comments')
+    creation_date = models.DateTimeField(auto_now_add=True)
