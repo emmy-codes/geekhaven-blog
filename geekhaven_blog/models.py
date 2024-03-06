@@ -20,7 +20,7 @@ class BlogPost(models.Model):
     blog_excerpt = models.TextField(default='', blank=True)  # to give a preview text on the post icons on the main page
 
 
-class BlogComments(models.Model):
+class BlogComment(models.Model):
     comment_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
     comment_body = models.TextField(default='', blank=True)
     comment_approved = False
