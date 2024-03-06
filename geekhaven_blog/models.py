@@ -20,9 +20,22 @@ class BlogPost(models.Model):
     blog_excerpt = models.TextField(default='', blank=True)  # to give a preview text on the post icons on the main page
 
 
+    class Meta:
+        ordering = ['-creation_date']
+    
+    def __str__(self):
+        return self.blog_heading  # changes object naming convention on admin site to blog_heading/title of blog
+
+
 class BlogComment(models.Model):
     comment_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_commenter')
     comment_body = models.TextField(default='')
     comment_approved = models.BooleanField(default=False)
     comment_which_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='post_comments')
     creation_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['creation_date']
+        
+    def __str__(self):
+        return f"Comment: {self.comment_body} | by {self.comment_author}"  # shows the comment and commenter on admin comment page
