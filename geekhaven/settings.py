@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'geekhaven_blog',
     'tailwind',
+    'tailwindcss',
     'tailwind_theme',
     'django_browser_reload',
 ]
@@ -124,7 +125,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TAILWIND_APP_NAME = 'tailwind_theme'
+TAILWINDCSS_CLI_FILE = BASE_DIR / 'tailwindcss-linux-x64'
+TAILWINDCSS_CONFIG_FILE = BASE_DIR / 'tailwind.config.js'
+TAILWINDCSS_OUTPUT_FILE = 'style.css'
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
