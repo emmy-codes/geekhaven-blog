@@ -48,10 +48,10 @@
               {{post.blog_heading}}
             </h3>
             <dl class="mt-1 flex flex-grow flex-col justify-between">
-              <dd class="text-sm">{{post.blog_excerpt}}</dd>
+              <dd class="text-sm">{{post.blog_excerpt|truncatechars:200}}</dd>
               <dd class="mt-3">
                 <button
-                  class="inline-flex items-center rounded-full bg-purple-heart-400 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-purple-heart-800"
+                  class="my-2 inline-flex items-center rounded-full bg-purple-heart-400 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-purple-heart-800"
                 >
                   Read more
                 </button>
