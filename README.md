@@ -71,6 +71,11 @@ I plan to create a simple yet rewarding personal blog of my cosplay and gaming a
 
 ![preliminary colour palette](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/0902544c-cf91-473e-ac5f-304ea954586d)
 
+After choosing this colour palette I was introduced t o Tailwind CSS Color Generator and took one of the hexcodes from it, adjusted the hue to a more pastel shade, and exported the hexcodes to my Tailwind config.
+
+![updated colour palette](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ad83f848-9bd3-4429-97f9-eed7d5db3e1e)
+
+
 I spent some time researching gaming and cosplay blogs and found that I preferred the more minimalist style. Too much information made it more like a news site (such as [Kotaku.com](https://kotaku.com/) ) but sites like [The Gaming Blog](https://thegamingblog.co.uk/) were more clear and concise, and more blog-like to me.
 
 I liked the enlarged header and footer design of The Gaming Blog, as well as the very centered content with a lot of empty space on the sides, even on my small laptop the content wasn't spread out too much, so I will try to implement something similar:
@@ -117,6 +122,7 @@ HTML
 CSS
 JavaScript
 Python
+Tailwind CSS and components
 
 ### Frameworks, Libraries & Programs Used
 
@@ -139,6 +145,8 @@ Python
 [Cloudinary](https://cloudinary.com/) - For hosting blog images.
 
 [Coolors](https://coolors.co/) - To create colour palettes.
+
+[Tailwind CSS color generator](https://uicolors.app/) - To generate a CSS palette for Tailwind.
 
 - - -
   
