@@ -237,7 +237,7 @@ Once the app was made I went to my dashboard where I can see my apps.
 Should you wish to fork this repo, here is a guide on how to do that:
 
 
-Firstly, go to https://github.com/emmy-codes/
+Firstly, go to https://github.com/emmy-codes/geekhaven-blog/
 
 
 1. On the main repo page, click the Fork button near the top right corner
@@ -262,7 +262,7 @@ Firstly, go to https://github.com/emmy-codes/
 
 For cloning the repo you will need:
 
-* The [repo](https://github.com/emmy-codes) open
+* The [repo](https://github.com/emmy-codes/geekhaven-blog) open
  
 
 * Your IDE of choice
@@ -299,7 +299,17 @@ Please refer to the [TESTING.md](https://github.com/) file for all testing carri
 
 ## Bug Fixes
 
-dundundunnn
+As I am making a blog I am very mindful of trying to keep my project as far separated as I can from the walkthrough from CI, whilst still using it as an assist tool.
+
+I am ensuring that I change any naming conventions, both to help me understand what the code does, and to force me to have a more in-depth understanding of the codebase rather than copying the same names as CI.
+
+This comes with its own set of problems when I don't fully understand something, as was proved when I attempted to append my blog posts to the HTML page I had created. I thought I had labelled everything correctly but received an error when attempting to run my server:
+
+![appending_posts_to_dom](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/8b4abf41-64ef-4a03-95bd-1a4bb8bb2d0e)
+
+It was telling me that blogpost_list.html didn't exist, which was entirely true. It was looking in geekhaven_blog/blogpost_list.html because ListView was looking for a file of the same name, aka my BlogPost class. After some research I discovered it also expected geekhaven_blog to be a folder inside of my templates, which I was missing.
+
+After making the above changes my server was once again loading!
 
 - - -
 
