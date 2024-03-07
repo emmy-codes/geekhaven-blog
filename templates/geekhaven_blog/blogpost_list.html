@@ -5,6 +5,7 @@
 <html>
   <head>
     <title>GeekHaven Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% tailwindcss %}
   </head>
 
@@ -29,7 +30,7 @@
       </div>
     </header>
 
-    <div class="mx-40 pt-6 outline-1">
+    <div class="flex items-center justify-center p-6 outline-1">
       <ul
         role="list"
         class="grid max-w-4xl grid-cols-1 gap-12 text-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
@@ -40,7 +41,7 @@
         >
           <div class="flex flex-1 flex-col">
             <img
-              class="max-h-48 max-w-full flex-shrink-0"
+              class="max-h-48 max-w-full flex-shrink-0 aspect-video object-contain"
               src="https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80"
               alt=""
             />
@@ -48,7 +49,7 @@
               {{post.blog_heading}}
             </h3>
             <dl class="mt-1 flex flex-grow flex-col justify-between">
-              <dd class="text-sm">{{post.blog_excerpt|truncatechars:200}}</dd>
+              <dd class="text-sm truncate">{{post.blog_excerpt}}</dd>
               <dd class="mt-3">
                 <button
                   class="my-2 inline-flex items-center rounded-full bg-purple-heart-400 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-purple-heart-800"
