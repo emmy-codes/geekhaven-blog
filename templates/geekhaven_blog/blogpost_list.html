@@ -1,4 +1,5 @@
 {% load static tailwindcss %}
+{% url 'homepage' as homepage_url %}
 
 <!doctype html>
 <html>
@@ -9,9 +10,11 @@
 
   <body class="bg-black">
     <header class="flex flex-col items-center bg-purple-heart-300 px-2 pt-5">
-      <h1 class="font-extrabold text-4xl py-1">GeekHaven Blog</h1>
-      <h2 class="font-medium italic pb-2">Cosplay and Gaming adventures</h2>
-      <div class="justify-center flex flex-row space-x-4 bg-purple-heart-50 w-screen">
+      <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
+      <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
+      <div
+        class="flex w-screen flex-row justify-center space-x-4 bg-purple-heart-50"
+      >
         <nav class="">
           <a href="#" class="text-m font-semibold leading-6 text-gray-900"
             >Home</a
@@ -26,11 +29,12 @@
       </div>
     </header>
 
-    <div class="mx-40 outline-1 pt-6">
+    <div class="mx-40 pt-6 outline-1">
       <ul
         role="list"
-        class="grid grid-cols-1 gap-12 max-w-4xl text-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
+        class="grid max-w-4xl grid-cols-1 gap-12 text-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
       >
+        {% for post in blogpost_list %}
         <li
           class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 text-center shadow"
         >
@@ -41,15 +45,10 @@
               alt=""
             />
             <h3 class="blog-title mt-6 text-sm font-medium text-gray-900">
-              Crafting Cosplay: A Rainy Evening with Bo Katan's Chest Armor
+              {{post.blog_heading}}
             </h3>
             <dl class="mt-1 flex flex-grow flex-col justify-between">
-              <dt class="sr-only">Title</dt>
-              <dd class="text-sm">
-                As the rain pattered against my window and the chill of the
-                evening settled in, I embarked on a journey of...
-              </dd>
-              <dt class="sr-only">Role</dt>
+              <dd class="text-sm">{{post.blog_excerpt}}</dd>
               <dd class="mt-3">
                 <button
                   class="inline-flex items-center rounded-full bg-purple-heart-400 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-purple-heart-800"
@@ -60,6 +59,7 @@
             </dl>
           </div>
         </li>
+        {% endfor %}
       </ul>
     </div>
 

@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from geekhaven_blog.views import blog_homepage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', blog_homepage, name='blog_homepage'),
+    path('', include('geekhaven_blog.urls')),
     path('__reload__/', include('django_browser_reload.urls')),
 ]
