@@ -3,4 +3,4 @@ from django.views import generic
 from .models import BlogPost
 
 class BlogGrid(generic.ListView):
-    model = BlogPost
+    queryset = BlogPost.objects.all().order_by('-creation_date')
