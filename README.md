@@ -311,6 +311,21 @@ It was telling me that blogpost_list.html didn't exist, which was entirely true.
 
 After making the above changes my server was once again loading!
 
+Some time after I had successfully appended the Cloudinary images to my homepage blog post views, I noticed that the first blog post was loading a <p> tag at the start of the excerpt, despite there not being one in the TextField of the admin panel.
+
+![p_tag_showing_on_first_blog_post](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ddc16ebc-83bf-41fe-bf08-e8fbaab2aa20)
+
+I took a look at my blogpost_list.html to try and figure out what was happening, but there are no mentions of p tags in the rendering of the blog content. I thought the truncate attribute might have impacted it in some way since it was the only tag to use it, but since that only limits the amount of text content visible, it turned out not to have any impact.
+
+I then took a look at my admin panel, sure enough, no p tags showing. BUT when clicking on the Code View button I could see these p tags sure enough!
+
+
+![p_tag_showing_on_first_blog_post_2](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/b1b83163-c5b2-4d9e-89fc-85fc3b44ba27)
+
+It was the only one showing and I thought perhaps there was some bug/issue with it being the first post available. Then I realised it was the first post I had made after installing Summernote.... sure enough, when I looked into the error I found out the tags were being auto inserted because of the WYSIWYG of Summernote.
+
+Thankfully there was a quick fix, since it's not possible to remove the tags manually from the admin post as they get reapplied. Simply putting "|striptags" on my excerpt stopped the tags being appended to the page. Result!
+
 - - -
 
 ## Credits
