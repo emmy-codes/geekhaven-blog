@@ -1,29 +1,37 @@
-{% load static tailwindcss %}
-{% url 'homepage' as homepage_url %}
+{% load static tailwindcss %} {% url 'homepage' as homepage_url %}
 
 <!doctype html>
 <html>
   <head>
     <title>GeekHaven Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     {% tailwindcss %}
   </head>
 
   <body class="bg-black">
     <header class="flex flex-col items-center bg-purple-heart-300 px-2 pt-5">
-      <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
+      <div class="flex flex-row">
+        <img
+          class="max-h-14 px-2"
+          src="/static/media/images/GeekHaven-logo-invis-bkg.png"
+          alt=""
+        />
+        <h1 class="py-1 text-5xl font-extrabold">GeekHaven Blog</h1>
+      </div>
       <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
+
+      <!-- Nav bar -->
       <div
         class="flex w-screen flex-row justify-center space-x-4 bg-purple-heart-50"
       >
         <nav class="">
-          <a href="#" class="text-m font-semibold leading-6 text-gray-900"
+          <a href="#" class="mx-4 first-line:text-m font-semibold leading-6 text-gray-900"
             >Home</a
           >
-          <a href="#" class="text-m font-semibold leading-6 text-gray-900"
+          <a href="#" class="mx-4 text-m font-semibold leading-6 text-gray-900"
             >Register</a
           >
-          <a href="#" class="text-m font-semibold leading-6 text-gray-900"
+          <a href="#" class="mx-4 text-m font-semibold leading-6 text-gray-900"
             >About</a
           >
         </nav>
@@ -41,15 +49,17 @@
         >
           <div class="flex flex-1 flex-col">
             <img
-              class="max-h-48 max-w-full flex-shrink-0 aspect-video object-contain"
+              class="aspect-video max-h-48 max-w-full flex-shrink-0 object-contain"
               src="{{ post.heading_image.url }}"
               alt=""
             />
-            <h3 class="mx-1 blog-title mt-2 text-sm font-medium text-gray-900">
+            <h3 class="blog-title mx-1 mt-2 text-sm font-medium text-gray-900">
               {{ post.blog_heading }}
             </h3>
             <dl class="mx-1 mt-1 flex flex-grow flex-col justify-between">
-              <dd class="text-sm truncate">{{ post.blog_excerpt|striptags }}</dd>
+              <dd class="truncate text-sm">
+                {{ post.blog_excerpt|striptags }}
+              </dd>
               <dd class="mt-3">
                 <button
                   class="my-2 inline-flex items-center rounded-full bg-purple-heart-400 px-2 py-1 text-sm font-medium text-black ring-1 ring-inset ring-purple-heart-800"
