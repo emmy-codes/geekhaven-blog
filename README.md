@@ -168,8 +168,6 @@ This lead me to do a quick check and yes, it was mean to have brackets on the en
 
 ![bug1 textfield issue](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c83d2c81-8ba1-41cd-b070-1a35f1f42c7f)
 
-The next problem was when I realised that I needed to remove the block of code that was rendering the thumbnails of the blogs to my homepage since Django wants every template to only serve one purpose. I remember a bit of trouble getting the initial render and having to rename my html file to match somewhere else to make it render... but where?
-
 
 
 - - -
@@ -329,6 +327,22 @@ I then took a look at my admin panel, sure enough, no p tags showing. BUT when c
 It was the only one showing and I thought perhaps there was some bug/issue with it being the first post available. Then I realised it was the first post I had made after installing Summernote.... sure enough, when I looked into the error I found out the tags were being auto inserted because of the WYSIWYG of Summernote.
 
 Thankfully there was a quick fix, since it's not possible to remove the tags manually from the admin post as they get reapplied. Simply putting "|striptags" on my excerpt stopped the tags being appended to the page. Result!
+
+Bug 3: The next problem was when I realised that I needed to remove the block of code that was rendering the thumbnails of the blogs to my homepage since Django wants every template to only serve one purpose. I remember a bit of trouble getting the initial render and having to rename my html file to match somewhere else to make it render... but where?
+
+![bug_3_template_not_exist (1)](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/4e0379f1-7ed2-4006-b78c-5256e173f27b)
+
+Reading the error I could tell 2 things: Which part of the code that was firing the error, and the error name. I went to my BlogGrid class on views.py and looked at my recently added attribute: template_name which was pointing to geekhaven/templates/index.html as the html files are in a folder, it seemed logical. Yet changing it to just index.html allowed some of the content to render..... some.
+
+![bug_3_progress](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/8ce3684b-0cef-4700-9978-9e6455c035b7)
+
+On to bug 4... this was clearly not rendering any css, nor my blogpost_list.html content.
+
+I had a quick Google around to try and find a starting point and came across a post that mentioned starting my TailwindCSS with the command python3 manage.py start. When I did that I got a massive list of errors but one stuck out "Cannot find module 'postcss-simple-vars'". It mentioned the build failing in a folder I had, that didn't contain the file it was looking for. Strange when it worked when everything was in one HTML file.
+
+Aha! In my tailwind.config.js file I was referencing a folder, geekhaven_blog which I recently removed as it seemed redundant inside my templates folder. This didn't help a bit, but I'm sure it will prevent another error down the line.
+
+
 
 - - -
 
