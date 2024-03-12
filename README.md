@@ -340,7 +340,10 @@ On to bug 4... this was clearly not rendering any css, nor my blogpost_list.html
 
 I had a quick Google around to try and find a starting point and came across a post that mentioned starting my TailwindCSS with the command python3 manage.py start. When I did that I got a massive list of errors but one stuck out "Cannot find module 'postcss-simple-vars'". It mentioned the build failing in a folder I had, that didn't contain the file it was looking for. Strange when it worked when everything was in one HTML file.
 
-Aha! In my tailwind.config.js file I was referencing a folder, geekhaven_blog which I recently removed as it seemed redundant inside my templates folder. This didn't help a bit, but I'm sure it will prevent another error down the line.
+Aha! In my tailwind.config.js file I was referencing a folder, geekhaven_blog which I recently removed as it seemed redundant inside my templates folder.  ~~ This didn't help a bit, but I'm sure it will prevent another error down the line. ~~ Ahaaaa! False alarm, my computer bugged out with the port open so the localhost server wasn't working properly, after a reboot I'm back to what I expected to see after moving my bloglist out of the homepage. Success!
+
+
+![bug4_success](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/7c42e778-a08f-44aa-b24d-4435a5da34d5)
 
 
 
