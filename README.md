@@ -59,8 +59,9 @@ I plan to create a simple yet rewarding personal blog of my cosplay and gaming a
 |              | (addon) As an Authenticated User I want to edit/delete my own comments so I can have control over my content  | 
 |   Site Admin           | As a Site Admin I want to create, update, upload images and delete my posts so I can control the content of my blog  | 
 |              | As a Site Admin I want to approve or disapprove comments so I can ensure a good tone is kept in the comments section   | 
-|              | As a Site Admin I want to delete comments that I've previously approved to ensure full control of my blog content  |
+|              | As a Site Admin I want to delete comments that I've previously approved to ensure full control of my blog content(covered in same User Story as previous above)  |
 |              | (addon) As a Site Admin I want user comments to go through a validation against a set of banned words, so that they can be automatically rejected |
+|              | (addon) As a Site Admin I want Authenticated/Unauthenticated users to search the site via a search bar so that they can find relevant blog content |
   
 
 - - -
