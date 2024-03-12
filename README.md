@@ -168,6 +168,9 @@ This lead me to do a quick check and yes, it was mean to have brackets on the en
 
 ![bug1 textfield issue](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c83d2c81-8ba1-41cd-b070-1a35f1f42c7f)
 
+The next problem was when I realised that I needed to remove the block of code that was rendering the thumbnails of the blogs to my homepage since Django wants every template to only serve one purpose. I remember a bit of trouble getting the initial render and having to rename my html file to match somewhere else to make it render... but where?
+
+
 
 - - -
 
