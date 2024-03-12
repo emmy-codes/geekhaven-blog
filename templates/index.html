@@ -8,8 +8,7 @@
     {% tailwindcss %}
   </head>
 
-  <body class="bg-black">
-    
+  <body class="bg-black flex flex-col justify-between min-h-screen">
     <!-- Heading banner, title and subtitle -->
     <header class="flex flex-col items-center bg-purple-heart-300 px-2 pt-5">
       <div class="flex flex-row">
@@ -18,7 +17,7 @@
           src="/static/media/images/GeekHaven-logo-invis-bkg.png"
           alt="A black line drawing of a retro gameboy"
         />
-        <h1 class="py-1 text-5xl font-extrabold">GeekHaven Blog</h1>
+        <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
       </div>
       <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
 
@@ -41,10 +40,13 @@
       </div>
     </header>
 
+    <main class="min-w-full block grow">{% block content %} {% endblock %}</main>
 
-
-    <footer>
-      <div></div>
+    <footer class="bg-gray-500 text-white p-4 h-32">
+      <div>
+        For Emma's personal portfolio only, not intended as a real
+        blogspace/community
+      </div>
     </footer>
   </body>
 </html>
