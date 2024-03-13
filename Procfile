@@ -1,2 +1,1 @@
-web: gunicorn geekhaven.wsgi
-release: python manage.py tailwind_setup
+web: python manage.py tailwind install && python manage.py tailwind build && gunicorn geekhaven.wsgi
