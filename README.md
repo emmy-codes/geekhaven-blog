@@ -345,7 +345,27 @@ Aha! In my tailwind.config.js file I was referencing a folder, geekhaven_blog wh
 
 ![bug4_success](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/7c42e778-a08f-44aa-b24d-4435a5da34d5)
 
+Hello bug5, my old friend...
 
+I was going to consider bug 4 my final explanation to show my thought process on problem solving, but this bug required me to make a lot of commits so it felt like something I shouldn't glaze over when it comes to looking at my commit history. All was looking well on my deployment, but as soon as I deployed the logo on my header threw a 404 error.
+
+I dug into my code and the Heroku logs. The logs showed that Heroku couldn't find the logo at the path I had specified. I tried running the collectstatic command but that checked 209 files and adjusted none due to finding another file with the destination path. It was referencing a load of admin css files that came from Tailwind which was equally confusing and not necessarily related to my issue.
+
+I thought back to when I had first created the project and installed Tailwind CSS and then Django Tailwind on top of that, got caught up and carried on. I thought "I'll try uninstalling django-tailwind to see if that helps" it definitely didn't! It took a lot of my regular Tailwind files so I ran a pip install just for tailwind.
+
+I redeployed and received the following error:
+
+![bug_5_-_tailwind](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/4f5f575c-1e77-4e44-aa1f-7911ff705fb3)
+
+I checked the requirements.txt file and saw tailwindcss was marked with version 0.0.1 which seemed really off. I tried updating it to the latest version on the Tailwind site. No luck. Next I tried updating Tailwind with an npm install from the site. Nothing. So I reverted back to the version that was automatically assigned.
+
+![bug_5_-_tailwind_commits](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/abe09b9f-e883-41fa-a32d-54b26eb85a84)
+
+I also updated the source on the image element to include Django's {% static %} parenthesis to see if it could help. After running a reinstall of tailwind css I ran the collectstatic command again and received a new error (that's what programmers call progress!) it said it couldn't find django_tailwindcloudinary_storage. A missing dependency? No, a missing comma on my INSTALLED_APPS list. Trying again I received a similar error for 'django_tailwind' uninstalling didn't remove it from my installed apps so removing it allowed the page to load correctly, logo and all! ...... ON LOCAL HOST
+
+I had also made 2 small changes on my settings.py, namely removing the leading slash on the STATIC_URL, and returning my STATICFILES_DIRS to having square brackets rather than regular which was a small change I made whilst trying to solve it and since it didn't give a direct error, I thought it didn't matter which.
+
+Dejected, I returned to https://django-tailwind.readthedocs.io/en/latest/installation.html and https://tailwindcss.com/docs/installation to reinstall django tailwind and check everything on regular tailwind was up to date. Installing it didn't break anything at least!
 
 - - -
 
