@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 
 PUBLISHED_STATUS = ((0, 'Draft'), (1, 'Published'))
 
+
 class BlogPost(models.Model):
     blog_heading = models.CharField(max_length=250, unique=True)
     heading_image = CloudinaryField('image', default='placeholder')
@@ -19,10 +20,9 @@ class BlogPost(models.Model):
     blog_likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)  # blank=True means the field is not required
     blog_excerpt = models.TextField(default='', blank=True)  # to give a preview text on the post icons on the main page
 
-
     class Meta:
         ordering = ['-creation_date']
-    
+
     def __str__(self):
         return self.blog_heading  # changes object naming convention on admin site to blog_heading/title of blog
 
@@ -36,6 +36,6 @@ class BlogComment(models.Model):
 
     class Meta:
         ordering = ['creation_date']
-        
+
     def __str__(self):
         return f"Comment: {self.comment_body} | by {self.comment_author}"  # shows the comment and commenter on admin comment page
