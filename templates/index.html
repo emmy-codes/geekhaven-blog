@@ -1,4 +1,4 @@
-{% load static tailwindcss %} {% url 'homepage' as homepage_url %}
+{% url 'homepage' as homepage_url %}
 
 <!doctype html>
 <html>
@@ -8,7 +8,7 @@
     {% tailwindcss %}
   </head>
 
-  <body class="bg-black flex flex-col justify-between min-h-screen">
+  <body class="flex min-h-screen flex-col justify-between bg-black">
     <!-- Heading banner, title and subtitle -->
     <header class="flex flex-col items-center bg-purple-heart-300 px-2 pt-5">
       <div class="flex flex-row">
@@ -23,7 +23,8 @@
 
       <!-- Nav bar -->
       <div
-        class="flex w-screen flex-row justify-center space-x-4 bg-purple-heart-50">
+        class="flex w-screen flex-row justify-center space-x-4 bg-purple-heart-50"
+      >
         <nav class="">
           <a
             href="#"
@@ -40,9 +41,11 @@
       </div>
     </header>
 
-    <main class="min-w-full block grow">{% block content %} {% endblock %}</main>
+    <main class="block min-w-full grow">
+      {% block content %} {% endblock %}
+    </main>
 
-    <footer class="bg-gray-500 text-white p-4 h-32">
+    <footer class="h-32 bg-gray-500 p-4 text-white">
       <div>
         For Emma's personal portfolio only, not intended as a real
         blogspace/community
