@@ -19,7 +19,8 @@ from django.urls import path, include
 from django.http import HttpResponse
 
 
-def dodge_favicon_404(request):  # brute force the 404 error for no favicon to return a 204 instead
+# brute force the 404 error for no favicon to return a 204 instead
+def dodge_favicon_404(request):
     return HttpResponse(status=204)
 
 urlpatterns = [
