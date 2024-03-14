@@ -1,0 +1,55 @@
+{% load static tailwindcss %} {% url 'homepage' as homepage_url %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>GeekHaven Blog - Cosplay and Gaming community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% tailwindcss %}
+  </head>
+
+  <body class="flex min-h-screen flex-col justify-between bg-black">
+    <!-- Heading banner, title and subtitle -->
+    <header class="flex flex-col items-center bg-purple-heart-300 px-2 pt-5">
+      <div class="flex flex-row">
+        <img
+          class="max-h-14 px-2"
+          src="{% static 'media/images/GeekHaven-logo-invis-bkg.png' %}"
+          alt="A black line drawing of a retro gameboy"
+        />
+        <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
+      </div>
+      <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
+
+      <!-- Nav bar -->
+      <div
+        class="flex w-screen flex-row justify-center space-x-4 bg-purple-heart-50"
+      >
+        <nav class="">
+          <a
+            href="#"
+            class="first-line:text-m mx-4 font-semibold leading-6 text-gray-900"
+            >Home</a
+          >
+          <a href="#" class="text-m mx-4 font-semibold leading-6 text-gray-900"
+            >Register</a
+          >
+          <a href="#" class="text-m mx-4 font-semibold leading-6 text-gray-900"
+            >About</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="block min-w-full grow">
+
+    </main>
+
+    <footer class="h-32 bg-gray-500 p-4 text-white">
+      <div>
+        For Emma's personal portfolio only, not intended as a real
+        blogspace/community
+      </div>
+    </footer>
+  </body>
+</html>
