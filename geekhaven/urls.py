@@ -24,9 +24,9 @@ def dodge_favicon_404(request):
     return HttpResponse(status=204)
 
 urlpatterns = [
-    path('', include('geekhaven_blog.urls')),
     path('admin/', admin.site.urls),
-    path('summernote/', include('django_summernote.urls')),
-    path('__reload__/', include('django_browser_reload.urls')),
+    path('', include('geekhaven_blog.urls')),
+    path('summernote/', include('django_summernote.urls')), 
     path('favicon.ico', dodge_favicon_404),  # Handle requests for favicon.ico
+    path('__reload__/', include('django_browser_reload.urls')),
 ]
