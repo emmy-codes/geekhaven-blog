@@ -3,8 +3,8 @@ from django.core.management import call_command
 
 
 class Command(BaseCommand):
-    help = 'Install and build Tailwind CSS'
+    help = "Install and build Tailwind CSS"
 
     def handle(self, *args, **kwargs):
-        call_command('tailwind', 'install')
-        call_command('tailwind', 'build')
+        call_command("tailwind", "install")
+        call_command("tailwind", "build")

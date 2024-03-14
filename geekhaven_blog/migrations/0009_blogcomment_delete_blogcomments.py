@@ -9,22 +9,44 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('geekhaven_blog', '0008_blogcomments'),
+        ("geekhaven_blog", "0008_blogcomments"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BlogComment',
+            name="BlogComment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('comment_body', models.TextField(default='')),
-                ('comment_approved', models.BooleanField(default=False)),
-                ('creation_date', models.DateTimeField(auto_now_add=True)),
-                ('comment_author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='post_commenter', to=settings.AUTH_USER_MODEL)),
-                ('comment_which_post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='post_comments', to='geekhaven_blog.blogpost')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("comment_body", models.TextField(default="")),
+                ("comment_approved", models.BooleanField(default=False)),
+                ("creation_date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "comment_author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="post_commenter",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "comment_which_post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="post_comments",
+                        to="geekhaven_blog.blogpost",
+                    ),
+                ),
             ],
         ),
         migrations.DeleteModel(
-            name='BlogComments',
+            name="BlogComments",
         ),
     ]

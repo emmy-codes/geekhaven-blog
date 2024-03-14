@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('geekhaven_blog', '0009_blogcomment_delete_blogcomments'),
+        ("geekhaven_blog", "0009_blogcomment_delete_blogcomments"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='blogcomment',
-            options={'ordering': ['creation_date']},
+            name="blogcomment",
+            options={"ordering": ["creation_date"]},
         ),
         migrations.AlterModelOptions(
-            name='blogpost',
-            options={'ordering': ['-creation_date']},
+            name="blogpost",
+            options={"ordering": ["-creation_date"]},
         ),
     ]

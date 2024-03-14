@@ -1,0 +1,44 @@
+{ 
+  "[django-html]": { 
+    "editor.defaultFormatter": "HookyQR.beautify", 
+    "editor.quickSuggestions": { 
+      "comments": true, 
+      "other": true, 
+      "strings": true 
+    }, 
+    "editor.tabSize": 4, 
+    "editor.wordWrap": "on", 
+    "editor.wordWrapColumn": 80 
+  }, 
+  "beautify.config": { 
+    "django-html.format.wrapLineLength": 80 
+  }, 
+  "beautify.language": { 
+    "html": [ 
+      "html", 
+      "django-html" 
+    ] 
+  }, 
+  "editor.formatOnSave": true, 
+  "emmet.includeLanguages": { 
+    "django-html": "html" 
+  }, 
+  "files.associations": { 
+    "**/templates/**/*.html": "django-html" 
+  }, 
+  "html-css-class-completion.HTMLLanguages": [ 
+    "django-html" 
+  ], 
+  "python.formatting.blackArgs": [ 
+    "--line-length=79" 
+  ], 
+  "python.formatting.provider": "black", 
+  "python.linting.enabled": true, 
+  "python.linting.pylintArgs": [ 
+    "--disable=C0114, W0222", 
+    "--load-plugins=pylint_django", 
+    "--load-plugins=pylint_django.checkers.migrations", 
+    "--django-settings-module=<geekhaven-blog>.settings"
+  ], 
+  "python.linting.pylintEnabled": true 
+} 
