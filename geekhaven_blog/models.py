@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models import Q
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.shortcuts import render
 
 
 PUBLISHED_STATUS = ((0, "Draft"), (1, "Published"))
@@ -50,3 +52,18 @@ class BlogComment(models.Model):
     # shows the comment and commenter on admin comment page
     def __str__(self):
         return f"Comment: {self.comment_body} | by {self.comment_author}"
+
+
+class SearchBar(models.Model):
+    template_name = "search_results.html"
+
+    def fetch_results(self, request, *args, **kwargs):
+        search_query = request.GET.fetch_results("search_query")
+        search_results = None
+
+        if search_query:
+            search_results = BlogPost.object.filter(
+                Q(blog_heading__icontains=search_query)
+            )
+            
+        return search_results
