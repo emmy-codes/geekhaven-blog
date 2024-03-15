@@ -25,7 +25,7 @@
           {{ post.blog_heading }}
         </h3>
         <dl class="mx-1 mt-1 flex flex-grow flex-col justify-between">
-          <dd class="truncate text-sm">{{ post.blog_excerpt|striptags }}</dd>
+          <dd class="p-1 truncate text-sm">{{ post.blog_excerpt|striptags }}</dd>
           <dd class="mt-3">
             <a href="{% url 'view_blog_post' slug=post.url_slug %}">
               <button
