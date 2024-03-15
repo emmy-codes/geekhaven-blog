@@ -1,19 +1,26 @@
 {% extends "index.html" %} {% block blog_post %}
 
-<section class="px-2 pt-5 text-white">
-
-  <section class="flex flex-row">
-      <h2>{{ blog_post.blog_heading }}</h2>
-      <img src="{{ blog_post.heading_image.url }}" alt="Blog title image" />
+<section
+  class="mx-4 max-w-3xl p-24 px-2 pt-5 text-purple-heart-300 md:mx-12 lg:mx-56"
+>
+  <section class="flex flex-row border-2 border-solid border-purple-heart-500">
+    <h2 class="bg-gray-900 text-center text-2xl font-bold">
+      {{ blog_post.blog_heading }}
+    </h2>
+    <img
+      class="w-6/12"
+      src="{{ blog_post.heading_image.url }}"
+      alt="Blog title image"
+    />
   </section>
 
   <section class="flex">
-      <h2>By {{ blog_post.blog_author }}</h2>
-      <div>Published on {{ blog_post.creation_date }}</div>
-      <div>| Chats ((insert comment number here))</div>
+    <h2>By {{ blog_post.blog_author }} </h2>
+    <div> Published on {{ blog_post.creation_date }} </div>
+    <div> | Chats ((number here))</div>
   </section>
-
-  <section>{{ blog_post.blog_content|safe}}</section>
+  <br />
+  <section class="">{{ blog_post.blog_content|safe}}</section>
 </section>
 
 {% endblock %}
