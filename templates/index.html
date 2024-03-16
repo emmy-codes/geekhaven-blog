@@ -23,7 +23,8 @@
 
       <!-- Nav bar -->
       <div
-        class="flex w-screen flex-row justify-center items-center space-x-4 bg-purple-heart-50">
+        class="flex w-screen flex-row items-center justify-center space-x-4 bg-purple-heart-50"
+      >
         <nav class="">
           <a
             href="#"
@@ -38,9 +39,18 @@
           >
         </nav>
         <!-- Search bar -->
-        <div for="search" class="w-40 flex m-1">
-          <input class="rounded-lg" id="search" type="text" placeholder="Search blogs here..." />
-          <button>🔎</button>
+        <div for="search" class="m-1 flex w-40">
+          <form method="get" action="">
+            {% csrf_token %}
+            <input
+              class="rounded-lg"
+              id="search"
+              type="text"
+              placeholder="Search blogs here..."
+              name="search_query"
+            />
+            <button type="submit">🔎</button>
+          </form>
         </div>
       </div>
     </header>
