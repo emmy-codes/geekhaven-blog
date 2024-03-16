@@ -2,7 +2,7 @@
 
 (title image placeholder)
 
-Visit the deployed site:
+Visit the deployed site: https://geekhaven-ab6b47c83d52.herokuapp.com/
 
 I plan to create a simple yet rewarding personal blog of my cosplay and gaming adventures.
 
