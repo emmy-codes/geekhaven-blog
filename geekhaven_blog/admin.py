@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, BlogComment  #  AboutGeekHaven, SearchBar
+from .models import BlogPost, BlogComment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -24,5 +24,3 @@ class AdminSearchOption(
 
 
 admin.site.register(BlogComment)
-# admin.site.register(AboutGeekHaven)
-# admin.site.register(SearchBar)
