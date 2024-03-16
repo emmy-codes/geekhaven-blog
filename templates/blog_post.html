@@ -1,5 +1,6 @@
-{% extends "index.html" %} 
+{% extends "index.html" %}
 {% load static %}
+
 {% block blog_post %}
 
 <section
@@ -23,6 +24,14 @@
   </section>
   <br />
   <section class="">{{ blog_post.blog_content|safe}}</section>
+</section> 
+
+<!--comments box -->
+<section>
+  <div>
+    {% include 'comment_section.html' %}
+    
+  </div>
 </section>
 
 {% endblock %}

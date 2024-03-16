@@ -39,15 +39,15 @@
           >
         </nav>
         <!-- Search bar -->
-        <div for="search" class="m-1 flex w-40">
+        <div for="search" class="m-1 flex">
           <form method="get" action="" class="flex">
             {% csrf_token %}
             <!-- search_query connects to the get_queryset fn in views.py -->
             <input
-              class="rounded-lg"
+              class="rounded-lg p-1 w-36"
               id="search"
               type="text"
-              placeholder="Search blogs here..."
+              placeholder="Search..."
               name="search_query" 
             />
             <button type="submit">🔎</button>
