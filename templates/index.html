@@ -1,4 +1,4 @@
-{% load static tailwindcss %} 
+{% load static tailwindcss %}
 
 {% url 'homepage' as homepage_url %}
 {% url 'login' as login_url %}
@@ -30,18 +30,24 @@
       <div
         class="flex w-screen flex-row items-center justify-center space-x-4 bg-purple-heart-50"
       >
-        <nav class="">
+        <nav class="text-m mx-4 font-semibold leading-6 text-gray-900">
           <a
-            href=""
-            class="first-line:text-m mx-4 font-semibold leading-6 text-gray-900"
-            >Home</a
+          class="first-line:text-m mx-4 font-semibold leading-6 text-gray-900 {% if request.path == homepage_url %}active{% endif %}"
+          href="{% url 'homepage' %}">Home</a
           >
-          <a href="{% url 'login_url' %}" class="text-m mx-4 font-semibold leading-6 text-gray-900"
-            >Login</a
+          <!-- Once user is logged in, logout option will show on navbar -->
+          {% if user.is_authenticated %}
+          <a
+            class="{% if request.path == logout_url %}active{% endif %}"
+            href="{% url 'logout' %}">Logout</a
           >
-          <a href="{% url 'register_url' %}" class="text-m mx-4 font-semibold leading-6 text-gray-900"
-            >Register</a
+          {% else %}
+          <a
+          class="text-m mx-4 font-semibold leading-6 text-gray-900 {% if request.path == register_url %}active{% endif %}"
+          href="{% url 'register' %}">Register</a
           >
+          <a href="{% url 'login' %}" class=" {% if request.path == login_url %}active{% endif %}">Login</a>
+          {% endif %}
         </nav>
         <!-- Search bar -->
         <div for="search" class="m-1 flex">
@@ -49,11 +55,11 @@
             {% csrf_token %}
             <!-- search_query connects to the get_queryset fn in views.py -->
             <input
-              class="rounded-lg p-1 w-36"
+              class="w-36 rounded-lg p-1"
               id="search"
               type="text"
               placeholder="Search..."
-              name="search_query" 
+              name="search_query"
             />
             <button type="submit">🔎</button>
           </form>
