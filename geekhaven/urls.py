@@ -25,7 +25,7 @@ def dodge_favicon_404(request):
 
 
 urlpatterns = [
-    path("accounts/", include("allauth.urls")),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('', include('geekhaven_blog.urls')),
     path('summernote/', include('django_summernote.urls')),
