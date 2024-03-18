@@ -32,23 +32,31 @@ CLOUDINARY_API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000', 'geekhaven.herokuapp.com', 'geekhaven-ab6b47c83d52.herokuapp.com']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '127.0.0.1:8000',
+    'geekhaven.herokuapp.com',
+    'geekhaven-ab6b47c83d52.herokuapp.com'
+    ]
 
-# allows admin to create blog content on deployed site
+# Allows admin to create blog content on deployed site
 CSRF_TRUSTED_ORIGINS = [
     'https://*.herokuapp.com'
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
     'cloudinary',
     'geekhaven_blog',
     'tailwind',
@@ -58,7 +66,14 @@ INSTALLED_APPS = [
     'django_summernote',
 ]
 
+# Gives the GeekHaven blog a site id of 1
+SITE_ID = 1
+# Redirect upon login/logout goes back to homepage
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 MIDDLEWARE = [
+    'allauth.account.middleware.AccountMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -90,7 +105,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'geekhaven.wsgi.application'
 
-# Database - os.environ.get gets the value from env.py with the variable DATABASE_URL
+# os.environ.get gets the value from env.py with the variable DATABASE_URL
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -101,18 +116,21 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa: E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa: E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa: E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa: E501
     },
 ]
+
+# No need for email verification on sign up, but necessary to avoid errors
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -132,13 +150,13 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'  # noqa: E501
 
 # Additional directories containing static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Directory where static files will be collected during deployment
-STATIC_ROOT = '/home/emmy_codez/Code/Code Institute/geekhaven-blog/staticfiles/'
+STATIC_ROOT = '/home/emmy_codez/Code/Code Institute/geekhaven-blog/staticfiles/'  # noqa: E501
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

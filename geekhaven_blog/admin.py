@@ -4,9 +4,8 @@ from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(BlogPost)
-class AdminSearchOption(
-    SummernoteModelAdmin
-):  # passing in SummernoteModelAdmin allows for use of summernote on the admin panel
+# passing in SummernoteModelAdmin allows for use of summernote on admin panel
+class AdminSearchOption(SummernoteModelAdmin):
     search_options = (
         "blog_heading",
         "url_slug",
@@ -16,10 +15,12 @@ class AdminSearchOption(
     search_by_heading = ["blog_heading"]
     search_filter = ("blog_published_status",)
     prepopulated_fields = {
+        # slug field(url creator) is automatically populated using the blog title
         "url_slug": ("blog_heading",)
-    }  # slug field (url creator) is automaticelly populated using the blogs' title
+    }
     summernote_text_fields = (
-        "blog_content"  # assigns the use of summernote only to the blog_content field
+        # assigns the use of summernote only to the blog_content field
+        "blog_content"
     )
 
 

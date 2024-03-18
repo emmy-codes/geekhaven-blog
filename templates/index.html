@@ -1,4 +1,9 @@
-{% load static tailwindcss %} {% url 'homepage' as homepage_url %}
+{% load static tailwindcss %} 
+
+{% url 'homepage' as homepage_url %}
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+{% url 'logout' as logout_url %}
 
 <!doctype html>
 <html>
@@ -27,14 +32,14 @@
       >
         <nav class="">
           <a
-            href="#"
+            href=""
             class="first-line:text-m mx-4 font-semibold leading-6 text-gray-900"
             >Home</a
           >
-          <a href="#" class="text-m mx-4 font-semibold leading-6 text-gray-900"
+          <a href="{% url 'login_url' %}" class="text-m mx-4 font-semibold leading-6 text-gray-900"
             >Login</a
           >
-          <a href="#" class="text-m mx-4 font-semibold leading-6 text-gray-900"
+          <a href="{% url 'register_url' %}" class="text-m mx-4 font-semibold leading-6 text-gray-900"
             >Register</a
           >
         </nav>
