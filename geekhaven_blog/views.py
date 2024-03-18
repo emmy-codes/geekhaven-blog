@@ -13,7 +13,7 @@ class BlogGrid(generic.ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        queryset = BlogPost.objects.all().order_by("-creation_date")
+        queryset = BlogPost.objects.filter().order_by("-creation_date")
 
         """ 
             stores input of search bar text
@@ -39,16 +39,10 @@ def view_blog_post(request, slug):
     return render(request, "blog_post.html", {"blog_post": blog_post})
 
 
-class AccountRegistration(models.Model):
-    """EmailField uses EmailValidator to auto reject emails over 320 chars &
-    shows the user an error message when the input doesn't look like an
-    email address
-    """
-
-    email = models.EmailField()
-
-
 @csrf_protect
 def register_account(request):
-    form = UserCreationForm()
+    form = UserCreationForm(request.POST)
+    
+    username = form.cleaned_data.get("username")
+    
     return render(response, "register.html", {"form": form})
