@@ -3,8 +3,9 @@
 
 {% block register %}
 
+<div>HI I'M A PRACTICE DIV IS THIS PAGE LOADING</div>
 <section id="register-container">
-    <form action="" method="POST">
+<form action="{% url 'register' %}" method="POST">
         <input type="text">
         <input type="text">
         <button type="submit">Register</button>

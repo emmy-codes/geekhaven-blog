@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import BlogPost
 from django.views.decorators.csrf import csrf_protect
@@ -43,6 +43,13 @@ def view_blog_post(request, slug):
 def register_account(request):
     form = UserCreationForm(request.POST)
     
-    username = form.cleaned_data.get("username")
+    if form.is_valid():
+        form.save()
+    # cleaned_data on the form data is created once the form is validated
+        username = form.cleaned_data.get("username")
+        email = form.cleaned_data.get("email")
+        password = form.cleaned_data.get("password")
     
-    return render(response, "register.html", {"form": form})
+        return redirect("homepage")
+    
+    return render(request, "register.html", {"form": form})
