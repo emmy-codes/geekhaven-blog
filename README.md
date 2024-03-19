@@ -367,6 +367,17 @@ I had also made 2 small changes on my settings.py, namely removing the leading s
 
 Dejected, I returned to https://django-tailwind.readthedocs.io/en/latest/installation.html and https://tailwindcss.com/docs/installation to reinstall django tailwind and check everything on regular tailwind was up to date. Installing it didn't break anything at least!
 
+This project is definitely challenging, and I've stumbled onto more errors than I've seen in all 3 projects together x4 or more. So I couldn't possibly talk about all of them, but this next one felt like a good one to tackle.
+
+Account creation. I went blindly into this, seemingly having forgotten everything about creating an account using Django. I tried winging a class-based model with a similar layout to the blog post list and blog posts, then tried creating a function to store the data. I simply can't try to wrangle Django without support, so I had a look on multiple different websites, trying to Frankenstein a working product together.
+
+[Django form validation using form.clean](https://docs.djangoproject.com/en/5.0/ref/forms/api/#using-forms-to-validate-data)
+[Django cleaning and validating forms](https://docs.djangoproject.com/en/5.0/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other)
+[Django Form Validation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/)
+[Django URL usage for the HTML](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#url)
+
+All hail Django documentation! I tried to piece together what I thought I needed for the login page to begin working, but stumbled upon a host of errors. (more on that later)
+
 - - -
 
 ## Credits
