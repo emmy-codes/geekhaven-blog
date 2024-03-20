@@ -41,15 +41,19 @@ def view_blog_post(request, slug):
 
 @csrf_protect
 def register_account(request):
-    form = UserCreationForm(request.POST)
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
     
-    if form.is_valid():
-        form.save()
-    # cleaned_data on the form data is created once the form is validated
-        username = form.cleaned_data.get("username")
-        email = form.cleaned_data.get("email")
-        password = form.cleaned_data.get("password")
+        if form.is_valid():
+            form.save()
+            # cleaned_data on the form data is created once form is validated
+            username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            # redirects the user once they are authenticated/registered
+            return redirect("homepage")
+    # if the request is GET instead, display registration form    
+    else:
+        form = UserCreationForm()
     
-        return redirect("homepage")
-    
-    return render(request, "register.html", {"form": form})
+        return render(request, "register.html", {"form": form})
