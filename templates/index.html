@@ -1,5 +1,7 @@
-{% load static tailwindcss %} {% url 'homepage' as homepage_url %} 
-{% url 'login' as login_url %} {% url 'register' as register_url %} 
+{% load static tailwindcss %}
+{% url 'homepage' as homepage_url %}
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
 {% url 'logout' as logout_url %}
 
 <!doctype html>
@@ -12,66 +14,60 @@
 
   <body class="flex min-h-screen flex-col justify-between bg-black">
     <!-- Heading banner, title and subtitle -->
-    <header class="flex flex-col items-center bg-purple-heart-300 px-2 pt-5">
+    <header class="flex flex-col items-center bg-purple-heart-300 px-8 pt-5">
       <div class="flex flex-row">
         <img
           class="max-h-14 px-2"
           src="{% static 'media/images/GeekHaven-logo-invis-bkg.png' %}"
-          alt="A black line drawing of a retro gameboy"
-        />
+          alt="A black line drawing of a retro gameboy" />
         <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
       </div>
       <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
 
       <!-- Nav bar -->
-      <div
-        class="flex w-screen flex-row items-center justify-center space-x-4 bg-purple-heart-50"
-      >
-        <nav class="text-m mx-4 font-semibold leading-6 text-gray-900">
-          <a
-            class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} mx-4 font-semibold leading-6 text-gray-900"
-            href="{% url 'homepage' %}"
-            >Home</a
-          >
-          <!-- Once user is logged in, logout option will show on navbar -->
-          {% if user.is_authenticated %}
-          <a
-            class="{% if request.path == logout_url %}active{% endif %}"
-            href="{% url 'logout' %}"
-            >Logout</a
-          >
-          {% else %}
-          <a
-            class="text-m {% if request.path == register_url %}active{% endif %} mx-4 font-semibold leading-6 text-gray-900"
-            href="{% url 'register' %}"
-            >Register</a
-          >
-          <a
-            href="{% url 'login' %}"
-            class="{% if request.path == login_url %}active{% endif %}"
-            >Login</a
-          >
-          {% endif %}
-        </nav>
+      <div class="flex w-screen justify-center space-x-4 bg-purple-heart-50">
+        <div
+          class="flex w-10/12 flex-col items-baseline justify-between py-2 md:w-8/12 md:flex-row lg:w-8/12 lg:flex-row">
+          <nav class="flex w-full justify-between md:w-auto lg:w-auto">
+            <a
+              class="first-line:text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == homepage_url %}active{% endif %}"
+              href="{% url 'homepage' %}"
+              >Home</a>
+            <!-- Once user is logged in, logout option will show on navbar -->
+            {% if user.is_authenticated %}
+            <a
+              class="text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == logout_url %}active{% endif %}"
+              href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a
+              class="text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == register_url %}active{% endif %}"
+              href="{% url 'register' %}"
+              >Register</a>
+            <a
+              class="text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == login_url %}active{% endif %}"
+              href="{% url 'login' %}">Login</a>
+            {% endif %}
+          </nav>
+        </div>
         <!-- Search bar -->
-        <div for="search" class="m-1 flex">
-          <form method="get" action="" class="flex">
+        <div for="search" class="py-2 flex mt-4 md:mt-0 lg:mt-0 w-full md:w-auto lg:w-auto">
+          <form method="get" action="" class="m-0 w-full md:w-auto lg:w-auto">
             {% csrf_token %}
             <!-- search_query connects to the get_queryset fn in views.py -->
             <input
-              class="w-36 rounded-lg p-1"
+              class="rounded-lg p-1 w-9/12"
               id="search"
               type="text"
               placeholder="Search..."
               name="search_query"
             />
-            <button type="submit">🔎</button>
+            <button type="submit" class="w-2/12">🔎</button>
           </form>
         </div>
       </div>
     </header>
 
-    <main class="block min-w-full grow">
+    <main class="flex items-center justify-center min-w-full grow px-0 md:px-8 lg:px-8">
       {% block blogpost_list %} {% endblock %} {% block blog_post %} {% endblock %} {% block register_user %} {% endblock %} {% block login %} {% endblock %}
     </main>
 
