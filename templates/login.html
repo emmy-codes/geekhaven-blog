@@ -1,9 +1,112 @@
-{% extends "index.html" %}
-{% load static %}
-{% block login %}
+{% extends "index.html" %} {% load static %} {% block login %}
 
-<section>
-    <div>HENLO</div>
-</section>
+<div class="relative block h-full w-7/12 flex-1">
+  <img
+    class="absolute inset-0 h-full w-full rounded-bl-sm rounded-tl-sm object-cover"
+    src="https://sm.ign.com/ign_nordic/news/w/world-of-w/world-of-warcraft-unveils-2024-roadmap-up-to-start-of-the-wo_ekrf.jpg"
+    alt=""
+  />
+</div>
+<div class="flex w-5/12 flex-1 flex-col justify-center px-4 py-12 lg:flex-none">
+  <div class="mx-auto w-full max-w-sm">
+    <h2 class="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      Sign in to your account
+    </h2>
+
+    <div class="mt-10">
+      <form action="{% url 'login' %}" method="POST" class="space-y-6">
+        {% csrf_token %}
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Email address</label
+          >
+          <div class="mt-2">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              class="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Password</label
+          >
+          <div class="mt-2">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+              class="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              class="text-purpleheart-600 h-4 w-4 rounded border-gray-300 focus:ring-purple-heart-600"
+            />
+            <label
+              for="remember-me"
+              class="ml-3 block text-sm leading-6 text-gray-700"
+              >Remember me</label
+            >
+          </div>
+
+          <div class="text-sm leading-6">
+            <a
+              href="#"
+              class="font-semibold text-purple-heart-600 hover:text-purple-heart-500"
+              >Forgot password?</a
+            >
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="flex w-full justify-center rounded-md bg-purple-heart-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-heart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600"
+          >
+            Sign in
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-10">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-gray-200"></div>
+          </div>
+          <div
+            class="relative flex justify-center text-sm font-medium leading-6"
+          >
+            <span class="bg-white px-6 text-gray-900">Not registered yet?</span>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="mt-6 flex w-full justify-center rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
