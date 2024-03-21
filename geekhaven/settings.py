@@ -30,7 +30,7 @@ CLOUDINARY_CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
 CLOUDINARY_API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -52,9 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.sites',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'crispy_forms',
+    'cloudinary_storage',
     'allauth',
     'allauth.account',
     'cloudinary',
