@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import BlogPost
 from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -43,7 +43,7 @@ def view_blog_post(request, slug):
 def register_account(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
-    
+
         if form.is_valid():
             form.save()
             # cleaned_data on the form data is created once form is validated
@@ -52,8 +52,29 @@ def register_account(request):
             password = form.cleaned_data.get("password")
             # redirects the user once they are authenticated/registered
             return redirect("homepage")
-    # if the request is GET instead, display registration form    
+    # if the request is GET instead, display registration form
     else:
         form = UserCreationForm()
+
+    return render(request, "register.html", {'form': form}) 
+
+@csrf_protect
+def user_login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
     
-        return render(request, "register.html", {"form": form})
+        if user is not None:
+            login(request)
+            return redirect("homepage")
+        else:
+            return render(request, "login.html", {"error": "Invalid credentials, please try again"})
+    else:
+        return render(request, "login.html")
+
+@csrf_protect
+def user_logout(request):
+    logout(request)
+    return redirect("homepage")
