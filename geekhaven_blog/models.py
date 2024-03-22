@@ -52,3 +52,7 @@ class BlogComment(models.Model):
     # shows the comment and commenter on admin comment page
     def __str__(self):
         return f"Comment: {self.comment_body} | by {self.comment_author}"
+
+class UserAccount(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email = models.EmailField()
