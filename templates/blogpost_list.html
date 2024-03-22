@@ -6,11 +6,12 @@
     role="list"
     class="grid grid-cols-1 gap-12 text-gray-500 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
     {% for post in blogpost_list %}
-    <a href="{% url 'view_blog_post' slug=post.url_slug %}" class="h-full flex flex-1 flex-col">
-      <ul class="" role="list">
+    
         <li
           class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 text-center">
-            <img
+          <a href="{% url 'view_blog_post' slug=post.url_slug %}" class="h-full flex flex-1 flex-col">
+          
+          <img
               class="aspect-video max-h-48 max-w-full flex-shrink-0 object-contain"
               src="{{ post.heading_image.url }}"
               alt="Image connected to the post's title"
@@ -29,10 +30,10 @@
                 </button>
               </dd>
             </dl>
-
+            </a>
         </li>
-      </ul>
-    </a>
+          
+ 
     {% endfor %}
   </ul>
 </div>
