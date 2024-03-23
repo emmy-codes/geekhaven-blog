@@ -81,13 +81,22 @@ def user_logout(request):
 @csrf_protect
 def cosplay_submissions(request):
     # place for users to upload their cosplays
-    submissions = CosplaySubmission.objects.all()
-    return render(request, "cosplay_submissions.html", {"submissions": submissions})
+    if request.method == "POST":
+        # request.FILES is how Django handles file uploads
+        cosplay_submission_form = CosplaySubmission(request.POST, request.FILES)
+        if cosplay_submission_form.is_valid():
+            # create form submission without submitting
+            cosplay_submission = cosplay_submission_form.save(commit=False)
+            cosplay_submission.author = request.user
+            cosplay_submission.save()
+            return redirect("cosplay_hall_of_fame")
+    else:
+        cosplay_submission_form = CosplaySubmission()
+    return render(request, "cosplay_submissions.html", {"cosplay_submission_form": cosplay_submission_form})
 
 @csrf_protect
 def cosplay_hall_of_fame(request):
     # quick render for errors to go away, plan structure later:
     all_cosplays = CosplaySubmission.objects.all().order_by("-submission_date")
-    
     
     return render(request, "cosplay_hall_of_fame.html", {"cosplay_render": all_cosplays})
