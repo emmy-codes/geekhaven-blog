@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import BlogPost, CosplaySubmission
+from .forms import CosplaySubmissionForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
@@ -83,7 +84,7 @@ def cosplay_submissions(request):
     # place for users to upload their cosplays
     if request.method == "POST":
         # request.FILES is how Django handles file uploads
-        cosplay_submission_form = CosplaySubmission(request.POST, request.FILES)
+        cosplay_submission_form = CosplaySubmissionForm(request.POST, request.FILES)
         if cosplay_submission_form.is_valid():
             # create form submission without submitting
             cosplay_submission = cosplay_submission_form.save(commit=False)
@@ -91,7 +92,7 @@ def cosplay_submissions(request):
             cosplay_submission.save()
             return redirect("cosplay_hall_of_fame")
     else:
-        cosplay_submission_form = CosplaySubmission()
+        cosplay_submission_form = CosplaySubmissionForm()
     return render(request, "cosplay_submissions.html", {"cosplay_submission_form": cosplay_submission_form})
 
 @csrf_protect
