@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from .models import BlogPost
+from .models import BlogPost, CosplaySubmission
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
@@ -37,7 +37,6 @@ def view_blog_post(request, slug):
     blog_post = get_object_or_404(queryset, url_slug=slug)
 
     return render(request, "blog_post.html", {"blog_post": blog_post})
-
 
 @csrf_protect
 def register_account(request):
@@ -78,3 +77,10 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect("homepage")
+
+@csrf_protect
+def cosplay_submissions(request):
+    # place for users to upload their cosplays
+    submissions = CosplaySubmission.objects.all()
+    return render(request, 'cosplay_submissions.html', {'submissions': submissions})
+

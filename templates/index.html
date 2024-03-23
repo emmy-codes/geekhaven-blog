@@ -1,8 +1,6 @@
-{% load static tailwindcss %}
-{% url 'homepage' as homepage_url %}
-{% url 'login' as login_url %}
-{% url 'register' as register_url %}
-{% url 'logout' as logout_url %}
+{% load static tailwindcss %} {% url 'homepage' as homepage_url %} {% url 'login' as login_url %} 
+{% url 'register' as register_url %} {% url 'logout' as logout_url %} {% url 'cosplay_submissions' as cosplay_submissions %}
+{% url 'cosplay_hall_of_fame' as cosplay_hall_of_fame %}
 
 <!doctype html>
 <html>
@@ -19,7 +17,8 @@
         <img
           class="max-h-14 px-2"
           src="{% static 'media/images/GeekHaven-logo-invis-bkg.png' %}"
-          alt="A black line drawing of a retro gameboy" />
+          alt="A black line drawing of a retro gameboy"
+        />
         <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
       </div>
       <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
@@ -27,48 +26,71 @@
       <!-- Nav bar -->
       <div class="flex w-screen justify-center space-x-4 bg-purple-heart-50">
         <div
-          class="flex w-10/12 flex-col items-baseline justify-between py-2 md:w-8/12 md:flex-row lg:w-8/12 lg:flex-row">
+          class="flex w-10/12 flex-col items-baseline justify-between py-2 md:w-8/12 md:flex-row lg:w-8/12 lg:flex-row"
+        >
           <nav class="flex w-full justify-between md:w-auto lg:w-auto">
             <a
-              class="first-line:text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == homepage_url %}active{% endif %}"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
               href="{% url 'homepage' %}"
-              >Home</a>
+              >Home</a
+            >
             <!-- Once user is logged in, logout option will show on navbar -->
             {% if user.is_authenticated %}
             <a
-              class="text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == logout_url %}active{% endif %}"
-              href="{% url 'logout' %}">Logout</a>
+              class="text-m {% if request.path == logout_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              href="{% url 'logout' %}"
+              >Logout</a
+            >
+            <a
+              class="text-m {% if request.path == cosplay_submissions %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              href="{% url 'cosplay_submissions' %}"
+              >Cosplay Submissions</a
+            >
             {% else %}
             <a
-              class="text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == register_url %}active{% endif %}"
+              class="text-m {% if request.path == register_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
               href="{% url 'register' %}"
-              >Register</a>
+              >Register</a
+            >
             <a
-              class="text-m px-4 py-2 font-semibold leading-6 text-gray-900 {% if request.path == login_url %}active{% endif %}"
-              href="{% url 'login' %}">Login</a>
+              class="text-m {% if request.path == login_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              href="{% url 'login' %}"
+              >Login</a
+            >
+            <a
+              class="text-m {% if request.path == cosplay_hall_of_fame %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              href="{% url 'cosplay_hall_of_fame' %}"
+              >Login</a
+            >
             {% endif %}
           </nav>
-        </div>
-        <!-- Search bar -->
-        <div for="search" class="py-2 mt-4 flex w-full md:mt-0 md:w-auto lg:mt-0 lg:w-auto">
-          <form method="get" action="" class="m-0 w-full md:w-auto lg:w-auto">
-            {% csrf_token %}
-            <!-- search_query connects to the get_queryset fn in views.py -->
-            <input
-              class="rounded-lg p-1 w-9/12"
-              id="search"
-              type="text"
-              placeholder="Search..."
-              name="search_query"
-            />
-            <button type="submit" class="w-2/12">🔎</button>
-          </form>
+
+          <!-- Search bar -->
+          <div
+            for="search"
+            class="mt-4 flex w-full py-2 md:mt-0 md:w-auto lg:mt-0 lg:w-auto"
+          >
+            <form method="get" action="" class="m-0 w-full md:w-auto lg:w-auto">
+              {% csrf_token %}
+              <!-- search_query connects to the get_queryset fn in views.py -->
+              <input
+                class="w-9/12 rounded-lg p-1"
+                id="search"
+                type="text"
+                placeholder="Search..."
+                name="search_query"
+              />
+              <button type="submit" class="w-2/12">🔎</button>
+            </form>
+          </div>
         </div>
       </div>
     </header>
 
-    <main class="flex items-center justify-center min-w-full grow px-0 md:px-8 lg:px-8">
-      {% block blogpost_list %} {% endblock %} {% block blog_post %} {% endblock %} {% block register_user %} {% endblock %} {% block login %} {% endblock %}
+    <main
+      class="flex items-center justify-center min-w-full grow px-0 md:px-8 lg:px-8"
+    >
+      {% block blogpost_list %} {% endblock %} {% block blog_post %} {% endblock %} {% block register_user %} {% endblock %} {% block login %} {% endblock %} {% block cosplay_submissions %} {% endblock %}
     </main>
 
     <footer class="flex min-h-32 justify-center bg-gray-500 p-4">
@@ -93,5 +115,13 @@
         </div>
       </section>
     </footer>
+    <script
+      src="https://upload-widget.cloudinary.com/global/all.js"
+      type="text/javascript"
+    >
+          let myCropWidget = cloudinary.createUploadWidget({
+      cloudName: 'demo', uploadPreset: 'preset1', folder: 'widgetUpload', cropping: true},
+      (error, result) => { console.log(error, result) })
+    </script>
   </body>
 </html>

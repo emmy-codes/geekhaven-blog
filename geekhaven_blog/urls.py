@@ -6,6 +6,7 @@ urlpatterns = [
     path("login/", views.user_login, name="login"),
     path("logout/", views.user_logout, name="logout"),
     path("accounts/", include("allauth.urls")),
+    path('cosplay_submissions/', views.cosplay_submissions, name='cosplay_submissions'),
     path("", views.BlogGrid.as_view(), name="homepage"),
     path("<slug:slug>/", views.view_blog_post, name="view_blog_post"),
 ]
