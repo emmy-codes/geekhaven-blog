@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, BlogComment
+from .models import BlogPost, BlogComment, CosplaySubmission
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -25,3 +25,5 @@ class AdminSearchOption(SummernoteModelAdmin):
 
 
 admin.site.register(BlogComment)
+
+admin.site.register(CosplaySubmission)
