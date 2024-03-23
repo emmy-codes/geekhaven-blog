@@ -55,7 +55,7 @@ def register_account(request):
     else:
         form = UserCreationForm()
 
-    return render(request, "register.html", {'form': form}) 
+    return render(request, "register.html", {"form": form}) 
 
 @csrf_protect
 def user_login(request):
@@ -82,5 +82,12 @@ def user_logout(request):
 def cosplay_submissions(request):
     # place for users to upload their cosplays
     submissions = CosplaySubmission.objects.all()
-    return render(request, 'cosplay_submissions.html', {'submissions': submissions})
+    return render(request, "cosplay_submissions.html", {"submissions": submissions})
 
+@csrf_protect
+def cosplay_hall_of_fame(request):
+    # quick render for errors to go away, plan structure later:
+    all_cosplays = CosplaySubmission.objects.all().order_by("-submission_date")
+    
+    
+    return render(request, "cosplay_hall_of_fame.html", {"cosplay_render": all_cosplays})

@@ -61,7 +61,7 @@ class UserAccount(models.Model):
 class CosplaySubmission(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # user can upload their own images
-    image = CloudinaryField('image')
+    image = CloudinaryField("image")
     # who the user is cosplaying as
     character = models.CharField(max_length=150)
     submission_date = models.DateTimeField(auto_now_add=True)

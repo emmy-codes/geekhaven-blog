@@ -1,0 +1,28 @@
+{% extends "index.html" %} {% block cosplay_hall_of_fame %}
+
+<section class="mx-4 p-24 px-2 pt-5 text-purple-heart-300 md:mx-12 lg:mx-96">
+  {% for cosplay_submission in cosplay_render %}
+  <section class="flex flex-row border-2 border-solid border-purple-heart-500">
+    <h2 class="bg-gray-900 text-center text-2xl font-bold">
+      {{ cosplay_submission.character }}
+    </h2>
+    <img
+      class="w-6/12"
+      src="{{ cosplay_submission.image.url }}"
+      alt="Cosplay submission image, content will vary"
+    />
+  </section>
+
+  <section class="flex">
+    <h2>By {{ cosplay_submission.author }}</h2>
+    <div>Published on {{ cosplay_submission.submission_date }}</div>
+    <!--<div> | Chats ((number here))</div>-->
+  </section>
+  <br />
+  <section class="">
+    {{ cosplay_submission.description|safe}}
+  </section>
+  {% endfor %}
+</section>
+
+{% endblock %}
