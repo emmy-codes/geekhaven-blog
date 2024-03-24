@@ -1,4 +1,4 @@
-{% load static tailwind_tags %} 
+{% load static tailwindcss %} 
 {% url 'homepage' as homepage_url %} 
 {% url 'login' as login_url %} 
 {% url 'register' as register_url %} 
@@ -11,7 +11,7 @@
   <head>
     <title>GeekHaven Blog - Cosplay and Gaming community</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% tailwind_css %}
+    {% tailwindcss %}
   </head>
 
   <body class="flex min-h-screen flex-col justify-between bg-black">
