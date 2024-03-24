@@ -1,1 +1,1 @@
-web: gunicorn geekhaven.wsgi
+web: python manage.py tailwind build && gunicorn geekhaven.wsgi
