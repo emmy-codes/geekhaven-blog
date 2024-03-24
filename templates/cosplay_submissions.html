@@ -4,7 +4,15 @@
 
 <!-- cosplay submission form -->
 <section>
+
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ cosplay_submission_form.as_p }}
     <button id="cloudinary-upload" onclick="launchCloudinaryWidget()">Upload an image here</button>
+    </form>
+
+
+
   <script
       src="https://upload-widget.cloudinary.com/global/all.js"
       type="text/javascript"
