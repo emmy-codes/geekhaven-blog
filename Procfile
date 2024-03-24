@@ -1,1 +1,1 @@
-web: npm i && python manage.py tailwind build && gunicorn geekhaven.wsgi
+web: python manage.py tailwind install && python manage.py tailwind build && gunicorn geekhaven.wsgi
