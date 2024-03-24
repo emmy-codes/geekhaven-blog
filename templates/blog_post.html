@@ -20,18 +20,18 @@
   <section class="flex">
     <h2>By {{ blog_post.blog_author }} </h2>
     <div> Published on {{ blog_post.creation_date }} </div>
-    <div> | Chats ((number here))</div>
+    <!--<div> | Chats ((number here))</div>-->
   </section>
   <br />
   <section class="">{{ blog_post.blog_content|safe}}</section>
 </section> 
 
-<!--comments box -->
+<!--comments box
 <section>
   <div>
     {% include 'comment_section.html' %}
     
   </div>
 </section>
-
+ -->
 {% endblock %}
