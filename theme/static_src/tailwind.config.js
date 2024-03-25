@@ -70,5 +70,13 @@ module.exports = {
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
+        require('daisyui'),
+    ],
+    daisyui: {},
+    safelist: [
+        'alert-info',
+        'alert-success',
+        'alert-warning',
+        'alert-error',
     ],
 }
