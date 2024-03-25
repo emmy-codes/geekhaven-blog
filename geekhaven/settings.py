@@ -60,9 +60,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'geekhaven_blog',
-    'tailwind',
     'tailwindcss',
-    'tailwind_theme',
     'django_browser_reload',
     'django_summernote',
 ]
@@ -164,7 +162,6 @@ STATIC_ROOT = '/home/emmy_codez/Code/Code Institute/geekhaven-blog/staticfiles/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TAILWIND_APP_NAME = 'tailwind_theme'
 TAILWINDCSS_CLI_FILE = BASE_DIR / 'tailwindcss-linux-x64'
 TAILWINDCSS_CONFIG_FILE = BASE_DIR / 'tailwind.config.js'
 TAILWINDCSS_OUTPUT_FILE = 'style.css'
