@@ -55,7 +55,10 @@ def register_account(request):
             # logs user in once they've registered
             login(request, user)
             # redirects the user once they are authenticated/registered
-            
+            messages.success(
+                request,
+                f"Welcome, {user.username}!"
+            )
             return redirect("homepage")
     # if the request is GET instead, display registration form
     else:
@@ -102,7 +105,12 @@ def cosplay_submissions(request):
             # create form submission without submitting
             cosplay_submission = cosplay_submission_form.save(commit=False)
             cosplay_submission.author = request.user
+            cosplay_submission.submission_status = 0
             cosplay_submission.save()
+            messages.success(
+                request,
+                "Your submission has been sent to an admin pending approval"
+            )
             return redirect("cosplay_hall_of_fame")
     else:
         cosplay_submission_form = CosplaySubmissionForm()
@@ -110,7 +118,7 @@ def cosplay_submissions(request):
 
 @csrf_protect
 def cosplay_hall_of_fame(request):
-    # quick render for errors to go away, plan structure later:
-    all_cosplays = CosplaySubmission.objects.all().order_by("-submission_date")
+    # appends any approved submissions
+    all_cosplays = CosplaySubmission.objects.filter(submission_status=1).order_by("-submission_date")
     
     return render(request, "cosplay_hall_of_fame.html", {"cosplay_render": all_cosplays})
