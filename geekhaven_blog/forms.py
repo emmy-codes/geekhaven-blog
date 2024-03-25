@@ -6,6 +6,5 @@ class CosplaySubmissionForm(forms.ModelForm):
         model = CosplaySubmission
         fields = [
             'character',
-            'image',
             'description'
         ]
