@@ -60,10 +60,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'geekhaven_blog',
-    'tailwindcss',
+    'tailwind',
+    'theme',
     'django_browser_reload',
     'django_summernote',
 ]
+TAILWIND_APP_NAME = 'theme'
 
 # Gives the GeekHaven blog a site id of 1
 SITE_ID = 1
