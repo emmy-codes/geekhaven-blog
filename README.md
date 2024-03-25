@@ -382,7 +382,7 @@ All hail Django documentation! I tried to piece together what I thought I needed
 
 ## Credits
   
-[DaisyUI walkthrough for Django and Tailwind](https://django.wtf/blog/django-alerts-with-tailwind-and-daisyui/) for my alert messages
+[DaisyUI walkthrough for Django and Tailwind](https://django.wtf/blog/django-alerts-with-tailwind-and-daisyui/) and [Django documentation](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/) for my alert messages
 
 ### Code Used
 
