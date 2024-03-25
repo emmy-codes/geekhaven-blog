@@ -63,9 +63,10 @@ class CosplaySubmission(models.Model):
     # user can upload their own images
     image = CloudinaryField("image")
     # who the user is cosplaying as
-    character = models.CharField(max_length=150)
+    character = models.CharField(max_length=150, blank=False)
+    submission_status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
     submission_date = models.DateTimeField(auto_now_add=True)
-    description = models.TextField()
+    description = models.TextField(blank=False)
     
     def __str__(self):
         return f"{self.author.username} cosplaying as {self.character}"
