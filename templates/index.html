@@ -24,6 +24,17 @@
           alt="A black line drawing of a retro gameboy"
         />
         <h1 class="py-1 text-4xl font-extrabold">GeekHaven Blog</h1>
+        <div>
+            {% csrf_token %}
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %}  role="alert" class=" alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+        </div>
       </div>
       <h2 class="pb-2 font-medium italic">Cosplay and Gaming adventures</h2>
 

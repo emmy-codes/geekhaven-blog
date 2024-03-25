@@ -5,6 +5,8 @@ from .forms import CosplaySubmissionForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+
 
 
 class BlogGrid(generic.ListView):
@@ -71,6 +73,10 @@ def user_login(request):
     
         if user is not None:
             login(request, user)
+            messages.success(
+                request, 
+                f"Welcome, {user.username}!"
+            )
             return redirect("homepage")
         else:
             return render(request, "login.html", {"error": "Invalid credentials, please try again"})
