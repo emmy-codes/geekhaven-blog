@@ -45,12 +45,15 @@ def register_account(request):
         form = UserCreationForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            user = form.save()
             # cleaned_data on the form data is created once form is validated
             username = form.cleaned_data.get("username")
             email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
+            # logs user in once they've registered
+            login(request, user)
             # redirects the user once they are authenticated/registered
+            
             return redirect("homepage")
     # if the request is GET instead, display registration form
     else:
