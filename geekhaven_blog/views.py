@@ -86,6 +86,10 @@ def user_login(request):
 @csrf_protect
 def user_logout(request):
     logout(request)
+    messages.info(
+        request,
+        "See you next time👋🏻"
+    )
     return redirect("homepage")
 
 @csrf_protect
