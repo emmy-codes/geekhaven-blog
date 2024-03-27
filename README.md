@@ -52,13 +52,12 @@ I plan to create a simple yet rewarding personal blog of my cosplay and gaming a
 |              | As an Unauthenticated User, I want to register an account by clicking Login/Register so I can join the community |
 |              | As an Unauthenticated User on the Login/Register page, I want to sign in once I have created an account so I can start engaging with the content 
 |              | As an Unauthenticated User, I want to click on a blog so I can view the content  | 
-|              | As an Unauthenticated User, I want to read comments left by Authenticated Users  |
-|              | As an Unauthenticated User on the comments section, I want to log in or register an account via the buttons provided | 
+|              | (Addon) As an Unauthenticated User on the cosplay hall of fame, I want to log in or register an account via the buttons provided | 
 | Authenticated User             | As an Authenticated User I want to comment on a post to engage with the admin/community |  
-|              | As an Authenticated User I want to like/unlike posts so I can feel involved  | 
-|              | (addon) As an Authenticated User I want to edit/delete my own comments so I can have control over my content  | 
+|              | As an Authenticated User I want to have confirmation when I perform an action | 
+|              | As an Authenticated User I want to edit/delete my own cosplay submission so I can have control over my content  | 
 |   Site Admin           | As a Site Admin I want to create, update, upload images and delete my posts so I can control the content of my blog  | 
-|              | As a Site Admin I want to approve or disapprove comments so I can ensure a good tone is kept in the comments section   | 
+|              | As a Site Admin I want to approve or disapprove cosplay submissions so I can ensure a good tone is kept in the cosplay hall of fame section   | 
 |              | As a Site Admin I want to delete comments that I've previously approved to ensure full control of my blog content(covered in same User Story as previous above)  |
 |              | (addon) As a Site Admin I want user comments to go through a validation against a set of banned words, so that they can be automatically rejected |
 |              | (addon) As a Site Admin I want Authenticated/Unauthenticated users to search the site via a search bar so that they can find relevant blog content |
