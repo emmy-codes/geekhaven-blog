@@ -54,8 +54,9 @@ I plan to create a simple yet rewarding personal blog of my cosplay and gaming a
 |              | As an Unauthenticated User, I want to click on a blog so I can view the content  | 
 |              | (Addon) As an Unauthenticated User on the cosplay hall of fame, I want to log in or register an account via the buttons provided | 
 | Authenticated User             | As an Authenticated User I want to comment on a post to engage with the admin/community |  
-|              | As an Authenticated User I want to have confirmation when I perform an action | 
-|              | As an Authenticated User I want to edit/delete my own cosplay submission so I can have control over my content  | 
+|              | As an Authenticated User I want to have confirmation when I perform an action so that I know they have happened | 
+|              | As an Authenticated User I wish to submit a cosplay to the hall of fame so that I may share my hobby with the community   |
+|              | As an Authenticated User I want to edit/delete my own cosplay submission so I can have control over my content  |  
 |   Site Admin           | As a Site Admin I want to create, update, upload images and delete my posts so I can control the content of my blog  | 
 |              | As a Site Admin I want to approve or disapprove cosplay submissions so I can ensure a good tone is kept in the cosplay hall of fame section   | 
 |              | As a Site Admin I want to delete comments that I've previously approved to ensure full control of my blog content(covered in same User Story as previous above)  |
