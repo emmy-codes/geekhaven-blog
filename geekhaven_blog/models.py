@@ -68,6 +68,5 @@ class CosplaySubmission(models.Model):
     submission_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField(blank=False)
     approval_state = models.BooleanField(default=False)
-    
     def __str__(self):
         return f"{self.author.username} cosplaying as {self.character}"

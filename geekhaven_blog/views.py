@@ -116,9 +116,15 @@ def cosplay_submissions(request):
         cosplay_submission_form = CosplaySubmissionForm()
     return render(request, "cosplay_submissions.html", {"cosplay_submission_form": cosplay_submission_form})
 
-@csrf_protect
+
 def cosplay_hall_of_fame(request):
-    # appends any approved submissions
-    all_cosplays = CosplaySubmission.objects.filter(submission_status=1).order_by("-submission_date")
+    # shows pending submissions when authenticated to the specific user
+    user_submissions = CosplaySubmission.objects.filter(
+        author=request.user, submission_status=0
+    )
+    return render(request, "cosplay_hall_of_fame.html", 
+        {"user_submissions": user_submissions})
     
-    return render(request, "cosplay_hall_of_fame.html", {"cosplay_render": all_cosplays})
+
+def update_submission(request, pk):
+    submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
