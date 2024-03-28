@@ -116,7 +116,7 @@ def cosplay_submissions(request):
         cosplay_submission_form = CosplaySubmissionForm()
     return render(request, "cosplay_submissions.html", {"cosplay_submission_form": cosplay_submission_form})
 
-
+@csrf_protect
 def cosplay_hall_of_fame(request):
     # showing all published submissions publicly
     published_submissions = CosplaySubmission.objects.filter(approval_state=True)
@@ -136,6 +136,6 @@ def cosplay_hall_of_fame(request):
          "user_submissions": user_submissions
     })
     
-
+@csrf_protect
 def update_submission(request, pk):
     submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
