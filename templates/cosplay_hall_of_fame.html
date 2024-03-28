@@ -1,9 +1,12 @@
 {% extends "index.html" %} 
 {% block cosplay_hall_of_fame %}
-<section class="mx-4 p-24 px-2 pt-5 text-purple-heart-300 md:mx-12 lg:mx-96">
-
+<section class="mx-4 p-24 px-2 pt-5 text-purple-heart-300 md:mx-12 lg:mx-96 ">
+<div class="rounded-lg border-4 border-solid border-purple-heart-500">
+  <h1>Cosplay Hall of Fame</h1>
+  <h2>View some of the fabulous cosplays from our community members!</h2>
+</div>
   {% for cosplay_submission in user_submissions %}
-    <section class="flex flex-row border-2 border-solid border-purple-heart-500 
+    <section class="flex flex-row border-2 border-solid border-purple-heart-500  
       {% if not cosplay_submission.approval_state %}opacity-50{% endif %}"> 
       <div>
         <h2 class="bg-gray-900 text-center text-2xl font-bold">
