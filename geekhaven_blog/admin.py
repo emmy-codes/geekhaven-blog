@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, BlogComment, CosplaySubmission
+from .models import BlogPost, CosplaySubmission
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -9,11 +9,11 @@ class AdminSearchOption(SummernoteModelAdmin):
     search_options = (
         "blog_heading",
         "url_slug",
-        "blog_published_status",
+        "blog_approved_status",
         "creation_date",
     )
     search_by_heading = ["blog_heading"]
-    search_filter = ("blog_published_status",)
+    search_filter = ("blog_approved_status",)
     prepopulated_fields = {
         # slug field(url creator) is automatically populated using the blog title
         "url_slug": ("blog_heading",)
@@ -28,12 +28,13 @@ class AdminApproveCosplaySubmissions(admin.ModelAdmin):
         'author',
         'character',
         'submission_date',
-        'submission_status'
+        'approval_state'
     )
     
     actions = ['approve_cosplay_submissions']
+    
     def approve_cosplay_submissions(self, request, queryset):
-        queryset.update(submission_status=1)
+        queryset.update(approval_state=True)
 
 # admin.site.register(BlogComment)
 admin.site.register(CosplaySubmission, AdminApproveCosplaySubmissions)

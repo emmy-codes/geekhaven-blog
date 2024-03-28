@@ -34,24 +34,6 @@ class BlogPost(models.Model):
         return self.blog_heading
 
 
-class BlogComment(models.Model):
-    comment_author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="post_commenter"
-    )
-    comment_body = models.TextField(default="")
-    comment_approved = models.BooleanField(default=False)
-    comment_which_post = models.ForeignKey(
-        BlogPost, on_delete=models.CASCADE, related_name="post_comments"
-    )
-    creation_date = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ["creation_date"]
-
-    # shows the comment and commenter on admin comment page
-    def __str__(self):
-        return f"Comment: {self.comment_body} | by {self.comment_author}"
-
 class UserAccount(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField()
@@ -64,7 +46,6 @@ class CosplaySubmission(models.Model):
     image = CloudinaryField("image")
     # who the user is cosplaying as
     character = models.CharField(max_length=150, blank=False)
-    submission_status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
     submission_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField(blank=False)
     approval_state = models.BooleanField(default=False)

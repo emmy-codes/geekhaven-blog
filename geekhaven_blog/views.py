@@ -118,12 +118,23 @@ def cosplay_submissions(request):
 
 
 def cosplay_hall_of_fame(request):
+    # showing all published submissions publicly
+    published_submissions = CosplaySubmission.objects.filter(approval_state=True)
+
     # shows pending submissions when authenticated to the specific user
-    user_submissions = CosplaySubmission.objects.filter(
-        author=request.user, submission_status=0
-    )
+    if request.user.is_authenticated:
+        user_submissions = CosplaySubmission.objects.filter(
+            author=request.user, approval_state=False
+        )
+    else:
+        user_submissions = None
+    
+    # renders published submissions to all, and drafts to their respective user
     return render(request, "cosplay_hall_of_fame.html", 
-        {"user_submissions": user_submissions})
+        {         
+         "published_submissions": published_submissions,
+         "user_submissions": user_submissions
+    })
     
 
 def update_submission(request, pk):
