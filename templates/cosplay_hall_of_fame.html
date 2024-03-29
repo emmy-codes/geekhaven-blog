@@ -1,7 +1,7 @@
 {% extends "index.html" %} 
 {% block cosplay_hall_of_fame %}
 
-<section class="mx-4 p-24 px-2 pt-5 text-purple-heart-300 md:mx-12 lg:mx-96 ">
+<section class="mx-auto my-8 w-10/12 self-start text-purple-heart-300 md:w-8/12 lg:w-8/12">
 <div class="rounded-lg border-4 border-solid border-purple-heart-500">
   <h1>Cosplay Hall of Fame</h1>
   <h2>View some of the fabulous cosplays from our community members!</h2>
@@ -9,45 +9,56 @@
 
 {% if user.is_authenticated %}
   {% if user_submissions %}
-<section>
-  <h2>Your pending submissions</h2>
+<section class="my-4 flex flex-col gap-10">
+  <h2 class="text-4xl font-bold text-purple-heart-500">Your pending submissions</h2>
   {% for cosplay_submission in user_submissions %}
-   <section class="flex flex-row border-2 border-solid border-purple-heart-500
-    {% if not cosplay_submission.approval_state %}opacity-50{% endif %}">      
-    <div>
-        <h2 class="bg-gray-900 text-center text-2xl font-bold">
-          {{ cosplay_submission.author }} cosplaying as {{ cosplay_submission.character }}
-        </h2>
-        <img 
-          class="w-6/12" 
-          src="{{ cosplay_submission.image.url }}" 
-          alt="Cosplay submission image, content will vary" 
-        />
-        {{ cosplay_submission.description|safe}}
+<section class="bg-white rounded-xl relative">      
+  {% if not cosplay_submission.approval_state %}
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75 z-10"></div>
+  {% endif %}
+  <div class="flex gap-6">
+    <img 
+      class="w-6/12 object-cover rounded-tl-xl rounded-bl-xl" 
+      src="{{ cosplay_submission.image.url }}" 
+      alt="Cosplay submission image, content will vary" 
+    />
+    <div class="w-6/12 text-base leading-7 text-gray-700">
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-purple-heart-900 sm:text-4xl">
+        {{ cosplay_submission.author }} cosplaying as {{ cosplay_submission.character }}
+      </h1>
+      <div>
+        <p class="mt-6">{{ cosplay_submission.description|safe}}</p>
       </div>
-    </section>
-    {% endfor %}
+    </div>
+  </div>
+</section>
+       
+  {% endfor %}
 </section>
   {% endif %}
 {% endif %}
 
 {% if published_submissions %}
-  <h2>Cosplays from our fantastic community!</h2>
-  {% for cosplay_submission in published_submissions %}
-    <section class="flex flex-row border-2 border-solid border-purple-heart-500"> 
-      <div>
-        <h2 class="bg-gray-900 text-center text-2xl font-bold">
-          {{ cosplay_submission.author }} cosplaying as {{ cosplay_submission.character }}
-        </h2>
-        <img 
-          class="w-6/12" 
-          src="{{ cosplay_submission.image.url }}" 
-          alt="Cosplay submission image, content will vary" 
-        />
-        {{ cosplay_submission.description|safe}}
-      </div>
-    </section>
-  {% endfor %}
+  <section class="mt-6 flex flex-col gap-10">
+    <h2 class="text-4xl font-bold text-purple-heart-500">
+      Cosplays from our fantastic community!
+    </h2>
+    {% for cosplay_submission in published_submissions %}
+      <section class="bg-white rounded-xl">
+        <div class="relative flex gap-6">
+          <img class="w-6/12 object-cover rounded-tl-xl rounded-bl-xl" src="{{ cosplay_submission.image.url }}"
+            alt="Cosplay submission image, content will vary" />
+          <div class="w-6/12 text-base leading-7 text-gray-700">
+            <h1 class="mt-2 text-3xl font-bold tracking-tight text-purple-heart-900 sm:text-4xl">
+              {{ cosplay_submission.author }} cosplaying as {{ cosplay_submission.character }}</h1>
+            <div>
+              <p class="mt-6">{{ cosplay_submission.description|safe}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endfor %}
+  </section>
 {% endif %}
 
 </section>
