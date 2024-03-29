@@ -164,10 +164,6 @@ STATIC_ROOT = '/home/emmy_codez/Code/Code Institute/geekhaven-blog/staticfiles/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-TAILWINDCSS_CLI_FILE = BASE_DIR / 'tailwindcss-linux-x64'
-TAILWINDCSS_CONFIG_FILE = BASE_DIR / 'tailwind.config.js'
-TAILWINDCSS_OUTPUT_FILE = 'style.css'
-
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
