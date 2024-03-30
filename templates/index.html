@@ -17,7 +17,7 @@
 
   <body class="flex min-h-screen flex-col justify-between bg-black">
     <!-- Heading banner, title and subtitle -->
-    <header class="flex flex-col items-center bg-purple-heart-300 px-8 pt-5">
+    <header class="flex flex-col items-center bg-purple-heart-300 px-4 pt-2.5 md:px-8 md:pt-5 lg:px-8 lg:pt-5">
       <div class="flex flex-row">
         <img
           class="max-h-14 px-2"
@@ -42,39 +42,39 @@
       <!-- Nav bar -->
       <div class="flex w-screen justify-center space-x-4 bg-purple-heart-50">
         <div
-          class="flex w-10/12 flex-col items-baseline justify-between py-2 md:w-8/12 md:flex-row lg:w-8/12 lg:flex-row"
+          class="flex w-11/12 flex-col items-baseline justify-between py-2 md:w-8/12 md:flex-row lg:w-8/12 lg:flex-row"
         >
           <nav class="flex w-full justify-between md:w-auto lg:w-auto">
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'homepage' %}"
               >Home</a
             >
             <a
-              class="text-m {% if request.path == cosplay_hall_of_fame %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'cosplay_hall_of_fame' %}"
               >Cosplay Hall of Fame</a
             >
             <!-- Once user is logged in, logout option will show on navbar -->
             {% if user.is_authenticated %}
              <a
-              class="text-m {% if request.path == cosplay_submissions %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'cosplay_submissions' %}"
               >Cosplay Submissions</a
             >
             <a
-              class="text-m {% if request.path == logout_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'logout' %}"
               >Logout</a
             >
             {% else %}
             <a
-              class="text-m {% if request.path == register_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'register' %}"
               >Register</a
             >
             <a
-              class="text-m {% if request.path == login_url %}active{% endif %} px-4 py-2 font-semibold leading-6 text-gray-900"
+              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'login' %}"
               >Login</a
             >
