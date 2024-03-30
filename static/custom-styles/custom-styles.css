@@ -1,0 +1,5 @@
+/* cover pending submissions with opaque overlay */
+
+.pending-submission {
+    opacity: 0.5;
+}
