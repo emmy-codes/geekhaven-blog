@@ -152,4 +152,4 @@ def update_submission(request, pk):
         form = CosplaySubmissionForm(instance=submission)
             
 
-    return render(request, "cosplay_update_form.html", {"form": form, "submission": submission})
+    return render(request, "cosplay_submissions.html", {"cosplay_submission_form": form})
