@@ -8,7 +8,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 
-
 class BlogGrid(generic.ListView):
 
     template_name = "blogpost_list.html"
@@ -41,6 +40,7 @@ def view_blog_post(request, slug):
 
     return render(request, "blog_post.html", {"blog_post": blog_post})
 
+
 @csrf_protect
 def register_account(request):
     if request.method == "POST":
@@ -55,16 +55,14 @@ def register_account(request):
             # logs user in once they've registered
             login(request, user)
             # redirects the user once they are authenticated/registered
-            messages.success(
-                request,
-                f"Welcome, {user.username}!"
-            )
+            messages.success(request, f"Welcome, {user.username}!")
             return redirect("homepage")
     # if the request is GET instead, display registration form
     else:
         form = UserCreationForm()
 
-    return render(request, "register.html", {"form": form}) 
+    return render(request, "register.html", {"form": form})
+
 
 @csrf_protect
 def user_login(request):
@@ -73,27 +71,27 @@ def user_login(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
-    
+
         if user is not None:
             login(request, user)
-            messages.success(
-                request, 
-                f"Welcome, {user.username}!"
-            )
+            messages.success(request, f"Welcome, {user.username}!")
             return redirect("homepage")
         else:
-            return render(request, "login.html", {"error": "Invalid credentials, please try again"})
+            return render(
+                request,
+                "login.html",
+                {"error": "Invalid credentials, please try again"},
+            )
     else:
         return render(request, "login.html")
+
 
 @csrf_protect
 def user_logout(request):
     logout(request)
-    messages.info(
-        request,
-        "See you next time👋🏻"
-    )
+    messages.info(request, "See you next time👋🏻")
     return redirect("homepage")
+
 
 @csrf_protect
 def cosplay_submissions(request):
@@ -108,13 +106,17 @@ def cosplay_submissions(request):
             cosplay_submission.submission_status = 0
             cosplay_submission.save()
             messages.success(
-                request,
-                "Your submission has been sent to an admin pending approval"
+                request, "Your submission has been sent to an admin pending approval"
             )
             return redirect("cosplay_hall_of_fame")
     else:
         cosplay_submission_form = CosplaySubmissionForm()
-    return render(request, "cosplay_submissions.html", {"cosplay_submission_form": cosplay_submission_form})
+    return render(
+        request,
+        "cosplay_submissions.html",
+        {"cosplay_submission_form": cosplay_submission_form},
+    )
+
 
 @csrf_protect
 def cosplay_hall_of_fame(request):
@@ -128,20 +130,24 @@ def cosplay_hall_of_fame(request):
         )
     else:
         user_submissions = None
-    
+
     # renders published submissions to all, and drafts to their respective user
-    return render(request, "cosplay_hall_of_fame.html", 
-        {         
-         "published_submissions": published_submissions,
-         "user_submissions": user_submissions
-    })
-    
+    return render(
+        request,
+        "cosplay_hall_of_fame.html",
+        {
+            "published_submissions": published_submissions,
+            "user_submissions": user_submissions,
+        },
+    )
+
+
 @csrf_protect
 # allows edit and delete on user submission
 def update_submission(request, pk):
     # ensuring request is from the post author
     submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
-    
+
     if request.method == "POST":
         form = CosplaySubmissionForm(request.POST, request.FILES, instance=submission)
         if form.is_valid():
@@ -150,6 +156,7 @@ def update_submission(request, pk):
     else:
         # create form containing the selected instance of cosplay submission
         form = CosplaySubmissionForm(instance=submission)
-            
 
-    return render(request, "cosplay_submissions.html", {"cosplay_submission_form": form})
+    return render(
+        request, "cosplay_submissions.html", {"cosplay_submission_form": form}
+    )

@@ -23,18 +23,15 @@ class AdminSearchOption(SummernoteModelAdmin):
         "blog_content"
     )
 
+
 class AdminApproveCosplaySubmissions(admin.ModelAdmin):
-    list_display = (
-        'author',
-        'character',
-        'submission_date',
-        'approval_state'
-    )
-    
-    actions = ['approve_cosplay_submissions']
-    
+    list_display = ("author", "character", "submission_date", "approval_state")
+
+    actions = ["approve_cosplay_submissions"]
+
     def approve_cosplay_submissions(self, request, queryset):
         queryset.update(approval_state=True)
+
 
 # admin.site.register(BlogComment)
 admin.site.register(CosplaySubmission, AdminApproveCosplaySubmissions)
