@@ -12,7 +12,7 @@
 <section class="my-4 flex flex-col gap-10">
   <h2 class="text-4xl font-bold text-purple-heart-500">Your pending submissions</h2>
   {% for cosplay_submission in user_submissions %}
-<section class="bg-white rounded-xl">
+<section class="bg-white rounded-xl {% if not cosplay_submission.approval_state %} pending-submission {% endif %}">
   <div class="relative flex gap-4 group md:gap-6 lg:gap-6">      
   {% if not cosplay_submission.approval_state %}
     <div class="block absolute w-full h-full bg-black bg-opacity-75 z-10 group-hover:hidden group-focus:hidden"></div>
@@ -38,6 +38,8 @@
       </h1>
       <div>
         <p class="mt-6">{{ cosplay_submission.description|safe}}</p>
+        <button>Edit</button>
+        <button>Delete</button>
       </div>
     </div>
   </div>
@@ -63,6 +65,8 @@
               {{ cosplay_submission.author }} cosplaying as {{ cosplay_submission.character }}</h1>
             <div>
               <p class="mt-6">{{ cosplay_submission.description|safe}}</p>
+              <button>Edit</button>
+              <button>Delete</button>
             </div>
           </div>
         </div>
