@@ -147,5 +147,9 @@ def update_submission(request, pk):
         if form.is_valid():
             form.save()
             return redirect("cosplay_hall_of_fame")
-        else:
-            return render(request, "cosplay_update_form.html", {"form": form, "submission": submission})
+    else:
+        # create form containing the selected instance of cosplay submission
+        form = CosplaySubmissionForm(instance=submission)
+            
+
+    return render(request, "cosplay_update_form.html", {"form": form, "submission": submission})
