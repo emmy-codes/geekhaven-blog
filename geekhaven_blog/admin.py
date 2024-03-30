@@ -15,7 +15,6 @@ class AdminSearchOption(SummernoteModelAdmin):
     search_by_heading = ["blog_heading"]
     search_filter = ("blog_approved_status",)
     prepopulated_fields = {
-        # slug field(url creator) is automatically populated using the blog title
         "url_slug": ("blog_heading",)
     }
     summernote_text_fields = (

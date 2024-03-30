@@ -17,7 +17,7 @@ class BlogGrid(generic.ListView):
     def get_queryset(self):
         queryset = BlogPost.objects.filter().order_by("-creation_date")
 
-        """ 
+        """
             stores input of search bar text
             (on our input field name=search_query)
         """
@@ -98,7 +98,9 @@ def cosplay_submissions(request):
     # place for users to upload their cosplays
     if request.method == "POST":
         # request.FILES is how Django handles file uploads
-        cosplay_submission_form = CosplaySubmissionForm(request.POST, request.FILES)
+        cosplay_submission_form = CosplaySubmissionForm(
+            request.POST, request.FILES
+            )
         if cosplay_submission_form.is_valid():
             # create form submission without submitting
             cosplay_submission = cosplay_submission_form.save(commit=False)
@@ -106,7 +108,7 @@ def cosplay_submissions(request):
             cosplay_submission.submission_status = 0
             cosplay_submission.save()
             messages.success(
-                request, "Your submission has been sent to an admin pending approval"
+                request, "Your submission has been sent to an admin pending approval"  # noqa
             )
             return redirect("cosplay_hall_of_fame")
     else:
@@ -121,7 +123,7 @@ def cosplay_submissions(request):
 @csrf_protect
 def cosplay_hall_of_fame(request):
     # showing all published submissions publicly
-    published_submissions = CosplaySubmission.objects.filter(approval_state=True)
+    published_submissions = CosplaySubmission.objects.filter(approval_state=True)  # noqa
 
     # shows pending submissions when authenticated to the specific user
     if request.user.is_authenticated:
@@ -146,10 +148,18 @@ def cosplay_hall_of_fame(request):
 # allows edit and delete on user submission
 def update_submission(request, pk):
     # ensuring request is from the post author
-    submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
+    submission = get_object_or_404(
+        CosplaySubmission,
+        pk=pk,
+        author=request.user
+    )
 
     if request.method == "POST":
-        form = CosplaySubmissionForm(request.POST, request.FILES, instance=submission)
+        form = CosplaySubmissionForm(
+            request.POST,
+            request.FILES,
+            instance=submission
+        )
         if form.is_valid():
             form.save()
             return redirect("cosplay_hall_of_fame")
