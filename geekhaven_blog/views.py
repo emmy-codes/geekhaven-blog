@@ -137,5 +137,15 @@ def cosplay_hall_of_fame(request):
     })
     
 @csrf_protect
+# allows edit and delete on user submission
 def update_submission(request, pk):
+    # ensuring request is from the post author
     submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
+    
+    if request.method == "POST":
+        form = CosplaySubmissionForm(request.POST, request.FILES, instance=submission)
+        if form.is_valid():
+            form.save()
+            return redirect("cosplay_hall_of_fame")
+        else:
+            return render(request, "cosplay_update_form.html", {"form": form, "submission": submission})
