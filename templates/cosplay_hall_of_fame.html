@@ -2,7 +2,7 @@
 {% block cosplay_hall_of_fame %}
 
 <section class="mx-auto my-8 w-11/12 self-start text-purple-heart-300 md:w-8/12 lg:w-8/12">
-<div class="rounded-lg border-4 border-solid border-purple-heart-500">
+<div class="p-4 rounded-lg border-4 border-solid border-purple-heart-500">
   <h1>Cosplay Hall of Fame</h1>
   <h2>View some of the fabulous cosplays from our community members!</h2>
 </div>
@@ -21,7 +21,7 @@
     <!-- buttons to allow users full update and delete functionality -->
     {% if cosplay_submission.author == user %}
       <!-- Show edit and delete buttons only if the user is the author -->
-      <div class="absolute bottom-0 left-0 right-0 px-12 py-8 bg-black bg-opacity-80 z-10 group-hover:flex group-focus:flex justify-center gap-8">
+      <div class="absolute bottom-0 left-0 right-0 px-12 py-8 bg-black bg-opacity-80 z-10 flex justify-center gap-8">
         <button type="submit" class="flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
           Edit submission
         </button>
@@ -61,7 +61,7 @@
     {% for cosplay_submission in published_submissions %}
       <section class="bg-white rounded-xl">
         <div class="relative flex gap-4 group md:gap-6 lg:gap-6">
-              <div class="block absolute w-full h-full bg-black bg-opacity-75 z-10 group-hover:hidden group-focus:hidden"></div>
+              <div class="block absolute w-full h-full z-10 group-hover:hidden group-focus:hidden"></div>
     
     <!-- buttons to allow users full update and delete functionality -->
     {% if cosplay_submission.author == user %}
