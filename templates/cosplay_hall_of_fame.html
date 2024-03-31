@@ -22,15 +22,17 @@
     {% if cosplay_submission.author == user %}
       <!-- Show edit and delete buttons only if the user is the author -->
       <div class="absolute bottom-0 left-0 right-0 px-12 py-8 bg-black bg-opacity-80 z-10 flex justify-center gap-8">
-        <button type="submit" class="flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
+        <a href="{% url 'edit_submission' cosplay_submission.id %}">
+          <button type="submit" class="flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
           Edit submission
-        </button>
-        <button type="submit" class="flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
-          Delete submission
-        </button>
+          </button>
+        </a>
+          <button type="submit" class="flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+            Delete submission
+          </button>
       </div>
     {% endif %}
-  {% endif %}
+  {% endif %}x
     <img 
       class="w-6/12 object-cover min-h-96 rounded-tl-xl rounded-bl-xl" 
       src="{{ cosplay_submission.image.url }}" 
@@ -61,18 +63,20 @@
     {% for cosplay_submission in published_submissions %}
       <section class="bg-white rounded-xl">
         <div class="relative flex gap-4 group md:gap-6 lg:gap-6">
-              <div class="block absolute w-full h-full z-10 group-hover:hidden group-focus:hidden"></div>
+          <div class="block absolute w-full h-full z-10 group-hover:hidden group-focus:hidden"></div>
     
     <!-- buttons to allow users full update and delete functionality -->
     {% if cosplay_submission.author == user %}
       <!-- Show edit and delete buttons only if the user is the author -->
       <div class="absolute bottom-0 left-0 right-0 px-12 py-8 bg-black bg-opacity-80 z-10 group-hover:flex group-focus:flex justify-center gap-8">
-        <button type="submit" class="flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
-          Edit submission
-        </button>
-        <button type="submit" class="flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
-          Delete submission
-        </button>
+        <a href="{% url 'edit_submission' cosplay_submission.id %}">
+          <button type="submit" class="flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
+            Edit submission
+          </button>
+        </a>
+          <button type="submit" class="flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+            Delete submission
+          </button>
       </div>
     {% endif %}
           <img class="w-6/12 object-cover min-h-96 rounded-tl-xl rounded-bl-xl" src="{{ cosplay_submission.image.url }}"

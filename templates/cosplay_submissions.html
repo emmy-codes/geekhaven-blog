@@ -8,7 +8,7 @@
     <h1 class="rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 text-center">Cosplay Submissions</h1>
       <form class="rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 text-center" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ cosplay_submission_form.as_p }}
+      {{ form.as_p }}
       <button class="rounded-lg border-4 border-solid border-purple-heart-500">Submit</button>
       </form>
   </div>

@@ -170,3 +170,12 @@ def update_submission(request, pk):
     return render(
         request, "cosplay_submissions.html", {"cosplay_submission_form": form}
     )
+
+""" Edit the pending or published cosplay submission by sending the user to the 
+cosplay_submission form with the data from the appended submission """
+def edit_submission(request, pk):
+    
+    submission = get_object_or_404(CosplaySubmission, pk=pk)
+    form = CosplaySubmissionForm(instance=submission)
+    
+    return render(request, 'cosplay_submissions.html', {'form': form, 'submission': submission})
