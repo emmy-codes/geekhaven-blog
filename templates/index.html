@@ -3,8 +3,8 @@
 {% url 'login' as login_url %} 
 {% url 'register' as register_url %} 
 {% url 'logout' as logout_url %} 
-{% url 'cosplay_submissions' as cosplay_submissions %}
-{% url 'cosplay_hall_of_fame' as cosplay_hall_of_fame %}
+{% url 'cosplay_submissions' as cosplay_submissions_url %}
+{% url 'cosplay_hall_of_fame' as cosplay_hall_of_fame_url %}
 
 <!doctype html>
 <html lang="en">
@@ -46,35 +46,36 @@
         >
           <nav class="flex w-full justify-between md:w-auto lg:w-auto">
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == homepage_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'homepage' %}"
               >Home</a
             >
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == cosplay_hall_of_fame_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'cosplay_hall_of_fame' %}"
               >Cosplay Hall of Fame</a
             >
             <!-- Once user is logged in, logout option will show on navbar -->
             {% if user.is_authenticated %}
              <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == cosplay_submissions_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'cosplay_submissions' %}"
               >Cosplay Submissions</a
             >
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == logout_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'logout' %}"
               >Logout</a
             >
             {% else %}
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == homepage_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'register' %}"
               >Register</a
             >
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}active{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == homepage_url %}border-b-purple-heart-800 border-b-2{% endif %} 
+              px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'login' %}"
               >Login</a
             >
@@ -111,7 +112,7 @@
 
     <footer class="flex min-h-32 justify-center bg-gray-500 p-4">
       <section
-        class="grid w-10/12 grid-cols-1 justify-center gap-12 px-0 text-white md:w-8/12 md:grid-cols-2 md:px-8 lg:w-8/12 lg:grid-cols-2 lg:px-8"
+        class="w-10/12 md:w-8/12 lg:w-8/12  justify-center px-0 md:px-8 lg:px-8 text-white grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2"
       >
         <div>
           <h2>About Geekhaven</h2>
