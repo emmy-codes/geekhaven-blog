@@ -1,10 +1,13 @@
+----------
+
+
 # GeekHaven - Personal Blog
 
 (title image placeholder)
 
 Visit the deployed site: https://geekhaven-ab6b47c83d52.herokuapp.com/
 
-I plan to create a simple yet rewarding personal blog of my cosplay and gaming adventures.
+I plan to create a simple yet rewarding personal blog of my cosplay and gaming adventures. The blog also sports a section for community members to upload their cosplays for people to see.
 
 ## CONTENTS
 
@@ -53,33 +56,32 @@ I plan to create a simple yet rewarding personal blog of my cosplay and gaming a
 |              | As an Unauthenticated User on the Login/Register page, I want to sign in once I have created an account so I can start engaging with the content 
 |              | As an Unauthenticated User, I want to click on a blog so I can view the content  | 
 |              | (Addon) As an Unauthenticated User on the cosplay hall of fame, I want to log in or register an account via the buttons provided | 
-| Authenticated User             | As an Authenticated User I want to comment on a post to engage with the admin/community |  
-|              | As an Authenticated User I want to have confirmation when I perform an action so that I know they have happened | 
-|              | As an Authenticated User I wish to submit a cosplay to the hall of fame so that I may share my hobby with the community   |
-|              | As an Authenticated User I want to edit/delete my own cosplay submission so I can have control over my content  |  
+| Authenticated User             | As an Authenticated User I want to have confirmation when I perform an action so that I know they have happened | 
+|              | As an Authenticated User I wish to submit a cosplay to the Hall of Fame so that I may share my hobby with the community   |
+|              | As an Authenticated User I want to edit/delete my cosplay submission so I can have control over my content  |  
 |   Site Admin           | As a Site Admin I want to create, update, upload images and delete my posts so I can control the content of my blog  | 
-|              | As a Site Admin I want to approve or disapprove cosplay submissions so I can ensure a good tone is kept in the cosplay hall of fame section   | 
-|              | As a Site Admin I want to delete comments that I've previously approved to ensure full control of my blog content(covered in same User Story as previous above)  |
-|              | (addon) As a Site Admin I want user comments to go through a validation against a set of banned words, so that they can be automatically rejected |
-|              | (addon) As a Site Admin I want Authenticated/Unauthenticated users to search the site via a search bar so that they can find relevant blog content |
+|              | As a Site Admin I want to approve or disapprove cosplay submissions so I can ensure a good tone is kept in the cosplay Hall of Fame section   | 
+|              | As a Site Admin I want to delete comments that I've previously approved to ensure full control of my blog content(covered in the same User Story as above)  |
+|              | (addon) As a Site Admin I want user comments to go through a validation against a set of banned words so that they can be automatically rejected |
+|              | As a Site Admin I want both Authenticated/Unauthenticated users to search the site via a search bar so that they can find relevant blog content |
   
 
 - - -
 
 ## Design
 
-* Colour palette - My first idea is a palette i found on Coolor, it appeals to me as it's my personal blog, whilst also giving Cyberpunk vibes which adds to its gamification. The very vibrant pink will only be used for a few outlines so as not to give anyone a headache!
+* Colour palette - My first idea is a palette I found on Coolor, it appeals to me as it's my personal blog, whilst also giving Cyberpunk vibes which adds to its gamification. The very vibrant pink will only be used for a few outlines so as not to give anyone a headache!
 
 ![preliminary colour palette](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/0902544c-cf91-473e-ac5f-304ea954586d)
 
-After choosing this colour palette I was introduced t o Tailwind CSS Color Generator and took one of the hexcodes from it, adjusted the hue to a more pastel shade, and exported the hexcodes to my Tailwind config.
+After choosing this colour palette I was introduced to Tailwind CSS Color Generator and took one of the hexcodes from it, adjusted the hue to a more pastel shade, and exported the hexcodes to my Tailwind config.
 
 ![updated colour palette](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ad83f848-9bd3-4429-97f9-eed7d5db3e1e)
 
 
 I spent some time researching gaming and cosplay blogs and found that I preferred the more minimalist style. Too much information made it more like a news site (such as [Kotaku.com](https://kotaku.com/) ) but sites like [The Gaming Blog](https://thegamingblog.co.uk/) were more clear and concise, and more blog-like to me.
 
-I liked the enlarged header and footer design of The Gaming Blog, as well as the very centered content with a lot of empty space on the sides, even on my small laptop the content wasn't spread out too much, so I will try to implement something similar:
+I liked the enlarged header and footer design of The Gaming Blog, as well as the very centred content with a lot of space on the sides, even on my small laptop the content wasn't spread out too much, so I will try to implement something similar:
 
 ![the-gaming-blog-header-nav](https://github.com/emmy-codes/Star-Trek-Museum/assets/70635859/13cd4718-c66b-41a5-9311-706ee310e135)
 
@@ -87,14 +89,14 @@ The blog content heading suited my style much more from Kotaku, so I will use th
 
 ![kotaku_blog_header_preview](https://github.com/emmy-codes/Star-Trek-Museum/assets/70635859/ac560aa9-d221-4833-89ad-76593b464dfb)
 
-For the login pages I had a quick Google of login/signup pages and really liked the design of [this envatoelements design](https://elements.envato.com/login-page-screen-02-DQUHPP?irgwc=1&clickid=3BdW0o0pXxyPRuQxyZSGN09uUkH1ljy9Xwq5UQ0&iradid=298927&utm_campaign=elements_af_78798&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&utm_medium=affiliate&utm_source=impact_radius&mp=Speckyboy%20Design%20Magazine) both in colour scheme and cleanliness of the layout. 
+For the login pages, I had a quick Google of login/signup pages and really liked the design of [this envatoelements design](https://elements.envato.com/login-page-screen-02-DQUHPP?irgwc=1&clickid=3BdW0o0pXxyPRuQxyZSGN09uUkH1ljy9Xwq5UQ0&iradid=298927&utm_campaign=elements_af_78798&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&utm_medium=affiliate&utm_source=impact_radius&mp=Speckyboy%20Design%20Magazine) both in colour scheme and cleanliness of the layout. 
 
 ### Accessibility
 
-Plans for accessibility:
+Accessibility plans:
 
 * Semantic HTML
-* Descriptive alt text for images
+* Descriptive alt text for images (this turned out to be difficult due to the dynamic nature of the webpage).
 * Ensure good colour contrast for visually impaired users with [Colour Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/)
 * Colour blindness: I did some research on the most common types of colour blindness and other than the vibrant pink (which will make up a small, small portion of the site) the rest of the colours still looked OK together.
 
@@ -111,7 +113,17 @@ The imagery for the blog will either be photographs from my projects, free image
 ![sign up page](https://github.com/emmy-codes/windows-95/assets/70635859/cee5ffd1-2713-426a-84b3-f2671627de18)
 ![homepage](https://github.com/emmy-codes/windows-95/assets/70635859/d02a8b57-8332-4cca-8aaa-c474c48c22fb)
 
-### Features
+## Features
+ The website consists of several key pages:
+
+* Homepage - this is where all users can see the list of blog posts written by the admin
+* Blog post view - when the user clicks on a blog post they're redirected to that specific blog to read about the content.
+* User registration - anyone can create an account to engage in different ways with the content. There are measures in place to ensure no two users can have the same email or username, and that the password is of sufficient strength.
+* User login/out - the user can choose to log in or out of the website. Logged-in users have access to submit cosplays to the community!....
+* .... which leads on to this feature, cosplay submissions. Authenticated users can upload an image with a description and character name. Submissions will be pending until an admin has approved them.
+* Cosplay Hall of Fame: Published submissions  (and the user's own pending submissions) can be viewed on this page.
+* Editing submissions - Authenticated users can also edit their submissions at any time by going to the Hall of Fame. This will redirect them to the cosplay submissions page, but with the prepopulated form data from their original submission.
+
 
 - - - 
 
@@ -154,17 +166,17 @@ Tailwind CSS and components
 
 ## Iteration over starting code
 
-Here I will take you through some of my thought processes and first iterations of code to help see my learning and problem solving process.
+Here I will take you through some of my thought processes and first iterations of code to help see my learning and problem-solving process.
 
 I did a mix of utilizing the information from Code Institute's "I think therefore I blog" material, and trying to do it myself to see how much I'd learned. 
 
-One of the first issues I encountered was setting up my blog post class. After a few hiccups everything migrated correctly and I could access the admin panel and see the button to add a blog post. I went in, only to realise that I had no field for the bulk of my blog content.
+One of the first issues I encountered was setting up my blog post class. After a few hiccups, everything migrated correctly and I could access the admin panel and see the button to add a blog post. I went in, only to realise that I had no field for the bulk of my blog content.
 
 ![bug_1_no_blog_content](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ce42cb49-2526-4a9b-8940-d26f8df47ba2)
 
 I checked my class on models.py - there was my blog_content attribute! But it wasn't showing up on the admin panel... so I checked my migration 0001_initial.py and checked what had been migrated.
 No blog_post.
-This lead me to do a quick check and yes, it was mean to have brackets on the end of my TextField type. A small error that wasn't picked up in any code compiling but still caused an undesired result. All it took was a () (and a default parameter) and a new migration to fix!
+This led me to do a quick check and yes, it was mean to have brackets on the end of my TextField type. A small error that wasn't picked up in any code compiling but still caused an undesired result. All it took was a () (and a default parameter) and a new migration to fix!
 
 ![bug1 textfield issue](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c83d2c81-8ba1-41cd-b070-1a35f1f42c7f)
 
@@ -243,21 +255,19 @@ Firstly, go to https://github.com/emmy-codes/geekhaven-blog/
 
 
 1. On the main repo page, click the Fork button near the top right corner
-2. 
-(add img)  
+![fork_step_1](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/2ac24fa9-0403-49f5-92b1-f4e5160f5109)
 
-3. On the create a fork page, check the Owner of the repo is set to the GitHub org you wish to use, and change the name of the repo if you wish.
 
-2a: Add a description if you want to
+2. On the create a fork page, check the Owner of the repo is set to the GitHub org you wish to use, and change the name of the repo if you wish.
 
-3. Check the box here if you want to make a copy of the main branch or multiple branches (main is selected by default)
+	2a: Add a description if you want to.
 
-4. Create the fork
+3. Check the box here if you want to make a copy of the main branch or multiple branches (main is selected by default).
 
-* Screenshot from an old project as I cannot fork my Python project due to not having any organizations connected to my account, and presumably because this repo is already a fork of the CI template
-* 
-(add img of forking repo)
-  
+4. Create the fork. Screenshot is from an old project as I cannot fork my Python project due to not having any organizations connected to my account, and presumably because this repo is already a fork of the CI template.
+ 
+ ![rsz_fork__steps](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/aa4dae7c-807d-4108-bb5b-f24c7010514b)
+
 
 #### How to Clone
   
@@ -273,9 +283,10 @@ For cloning the repo you will need:
 
 2. On the dropdown from the Code button, click on your chosen key (pictured here is SSH)
 
-3. Click the copy button (shown as two squares on top of one another)
+3. Click the copy button (shown as two squares on top of one another) 
 
-(add img of copying SSH from repo)  
+![ssh_code_copy_gh](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ea6bcd4d-40d1-4250-b3ea-eb3e6b804efd)
+
 
 4. Open your IDE of choice and open the Terminal, or in my case, open the Terminal on your computer (I run Linux on Windows so may be slightly different for Mac/Windows users)
 
@@ -285,12 +296,11 @@ For cloning the repo you will need:
 
 7. Type (without quotation marks): "git clone" followed by your copied link from GitHub.
   
+  ![git_clone_on_ubuntu](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/bfa89623-5fc5-4c04-a526-f3dffabdd964)
+
 8. You can now access the repo in your IDE if cloned directly there, or by typing (without quotation marks) "code ." in your Terminal.
 
-9. Enjoy!
-  
-(add image of cmd git clone)
-  
+9. Enjoy! 
 
 - - -
   
@@ -376,7 +386,7 @@ Account creation. I went blindly into this, seemingly having forgotten everythin
 [Django Form Validation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/)
 [Django URL usage for the HTML](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#url)
 
-All hail Django documentation! I tried to piece together what I thought I needed for the login page to begin working, but stumbled upon a host of errors. (more on that later)
+All hail Django documentation! I tried to piece together what I thought I needed for the login page to begin working, but stumbled upon a host of errors. 
 
 - - -
 
@@ -403,4 +413,5 @@ I would like to acknowledge the following people:
 * My partner who, despite having no idea about Python, has done his best to support me in my learning 🥰
 
 * Family and friends on Facebook for user testing my game and providing feedback!
+* community-sweden on Slack for becoming an amazing community space, leading to online and IRL study sessions! Many of us were doing P4 at the same time and it was great to talk with fellow students about project woes.
 
