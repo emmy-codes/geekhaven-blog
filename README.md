@@ -3,7 +3,8 @@
 
 # GeekHaven - Personal Blog
 
-(title image placeholder)
+![geekhaven-blog-cosplay-and-gaming-community](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/a554a19d-65ff-471e-9664-3a5f9bb322dc)
+
 
 Visit the deployed site: https://geekhaven-ab6b47c83d52.herokuapp.com/
 
@@ -117,9 +118,11 @@ The imagery for the blog will either be photographs from my projects, free image
  The website consists of several key pages:
 
 * Homepage - this is where all users can see the list of blog posts written by the admin
+![geekhaven-blog-cosplay-and-gaming-community](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/a554a19d-65ff-471e-9664-3a5f9bb322dc)
 * Blog post view - when the user clicks on a blog post they're redirected to that specific blog to read about the content.
 * User registration - anyone can create an account to engage in different ways with the content. There are measures in place to ensure no two users can have the same email or username, and that the password is of sufficient strength.
 * User login/out - the user can choose to log in or out of the website. Logged-in users have access to submit cosplays to the community!....
+![login_screen](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c0dc610c-c7d4-4c09-af1a-a5110eefdcd5)
 * .... which leads on to this feature, cosplay submissions. Authenticated users can upload an image with a description and character name. Submissions will be pending until an admin has approved them.
 * Cosplay Hall of Fame: Published submissions  (and the user's own pending submissions) can be viewed on this page.
 * Editing submissions - Authenticated users can also edit their submissions at any time by going to the Hall of Fame. This will redirect them to the cosplay submissions page, but with the prepopulated form data from their original submission.
