@@ -384,6 +384,10 @@ All hail Django documentation! I tried to piece together what I thought I needed
   
 [DaisyUI walkthrough for Django and Tailwind](https://django.wtf/blog/django-alerts-with-tailwind-and-daisyui/) and [Django documentation](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/) for my alert messages
 
+My amazing partner and his error interpretation skills, and extra help putting together the form after I broke it implementing submission edit functionality!
+
+[This forum post](https://stackoverflow.com/questions/65730017/using-widgets-to-change-the-css-of-label-in-django-forms/65730427#65730427) and [More Django documentation](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/) for researching widgets to be able to customise the submission forms' CSS.
+
 ### Code Used
 
 ### Content
