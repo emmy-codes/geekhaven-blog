@@ -98,9 +98,7 @@ def cosplay_submissions(request):
     # place for users to upload their cosplays
     if request.method == "POST":
         # request.FILES is how Django handles file uploads
-        cosplay_submission_form = CosplaySubmissionForm(
-            request.POST, request.FILES
-            )
+        cosplay_submission_form = CosplaySubmissionForm(request.POST, request.FILES)
         if cosplay_submission_form.is_valid():
             # create form submission without submitting
             cosplay_submission = cosplay_submission_form.save(commit=False)
@@ -108,16 +106,18 @@ def cosplay_submissions(request):
             cosplay_submission.submission_status = 0
             cosplay_submission.save()
             messages.success(
-                request, "Your submission has been sent to an admin pending approval"  # noqa
+                request, "Your submission has been sent to an admin pending approval" 
             )
             return redirect("cosplay_hall_of_fame")
-    else:
-        cosplay_submission_form = CosplaySubmissionForm()
-    return render(
-        request,
-        "cosplay_submissions.html",
-        {"cosplay_submission_form": cosplay_submission_form},
-    )
+    else:  
+        if "edit_mode" in request.GET:
+            submission = get_object_or_404(CosplaySubmission, pk=request.GET['submission_id'])
+            form = CosplaySubmissionForm(instance=submission)
+            return render(request, "cosplay_submissions.html", {"cosplay_submission_form": form, "edit_mode": True})
+        else:
+            cosplay_submission_form = CosplaySubmissionForm()
+            return render(request, "cosplay_submissions.html", {"cosplay_submission_form": cosplay_submission_form})
+
 
 
 @csrf_protect
@@ -178,4 +178,7 @@ def edit_submission(request, pk):
     submission = get_object_or_404(CosplaySubmission, pk=pk)
     form = CosplaySubmissionForm(instance=submission)
     
-    return render(request, 'cosplay_submissions.html', {'form': form, 'submission': submission})
+    return render(
+        request, 'cosplay_submissions.html', {
+            'form': form, 'submission': submission, 'edit_mode': True
+            })

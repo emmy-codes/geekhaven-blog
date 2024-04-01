@@ -7,8 +7,13 @@
   <div>
     <h1 class="rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 text-center">Cosplay Submissions</h1>
       <form class="rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 text-center" method="post" enctype="multipart/form-data">
+
       {% csrf_token %}
-      {{ form.as_p }}
+      {% if edit_mode %}
+        {{ form.as_p }}
+      {% else %}
+        {{ cosplay_submission_form.as_p }}
+      {% endif %}
       <button class="rounded-lg border-4 border-solid border-purple-heart-500">Submit</button>
       </form>
   </div>
