@@ -29,6 +29,9 @@
           <div>
             <label class="block text-sm font-medium leading-6 text-gray-900" for="{{ field.name }}">{{ field.label }}</label>
             {{ field }}
+            {% if field.name == "image" %}
+            <input type="hidden" name="{{field.name}}-current" class="preview-current-image" value="{{ field.value.url }}" />
+            {% endif %}
           </div>
           {% endfor %}
           {% else %}
@@ -51,6 +54,12 @@
         <script>
           const fileInput = document.querySelector('input[type="file"]');
           const preview = document.querySelector('img.preview-image');
+          const previewLoaded = document.querySelector('input.preview-current-image');
+          
+          if (previewLoaded) {
+            preview.src = previewLoaded.value;
+            preview.classList.remove('hidden');
+          }
 
           fileInput.addEventListener('change', function () {
             const [file] = fileInput.files;
