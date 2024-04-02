@@ -69,12 +69,12 @@
             >
             {% else %}
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
+              class="first-line:text-m {% if request.path == register_url %}border-b-purple-heart-800 border-b-2{% endif %} px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'register' %}"
               >Register</a
             >
             <a
-              class="first-line:text-m {% if request.path == homepage_url %}border-b-purple-heart-800 border-b-2{% endif %} 
+              class="first-line:text-m {% if request.path == login_url %}border-b-purple-heart-800 border-b-2{% endif %} 
               px-2 py-1 font-semibold leading-6 text-gray-900 md:px-4 md:py-2 lg:px-4 lg:py-2"
               href="{% url 'login' %}"
               >Login</a
