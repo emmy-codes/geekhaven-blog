@@ -10,7 +10,7 @@
       class="h-full w-full absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center rounded-bl-sm rounded-tl-sm bg-black bg-opacity-80 text-white">
       <h2>Choose an image to preview it here!</h2>
     </div>
-    <img class="hidden inset-0 h-full w-full rounded-bl-sm rounded-tl-sm object-cover z-10 relative"
+    <img class="preview-image hidden inset-0 h-full w-full rounded-bl-sm rounded-tl-sm object-cover z-10 relative"
       src=""
       alt="" />
   </div>
@@ -48,6 +48,18 @@
             </button>
           </div>
         </form>
+        <script>
+          const fileInput = document.querySelector('input[type="file"]');
+          const preview = document.querySelector('img.preview-image');
+
+          fileInput.addEventListener('change', function () {
+            const [file] = fileInput.files;
+            if (file) {
+              preview.src = URL.createObjectURL(file);
+              preview.classList.remove('hidden');
+            }
+          });
+        </script>
       </div>
     </div>
   </div>
