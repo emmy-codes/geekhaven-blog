@@ -21,9 +21,19 @@
         <form enctype="multipart/form-data" method="POST" class="space-y-6 text-gray-900">
           {% csrf_token %}
           {% if edit_mode %}
-            {{ form.as_p }}
+          {% for field in form %}
+          <div>
+            <label class="block text-sm font-medium leading-6 text-gray-900" for="{{ field.name }}">{{ field.label }}</label>
+            {{ field }}
+          </div>
+          {% endfor %}
           {% else %}
-            {{ cosplay_submission_form.as_p }}
+          {% for field in cosplay_submission_form %}
+          <div>
+            <label class="block text-sm font-medium leading-6 text-gray-900" for="{{ field.name }}">{{ field.label }}</label>
+            {{ field }}
+          </div>
+          {% endfor %}
           {% endif %}
           
 
