@@ -22,7 +22,7 @@
     {% if cosplay_submission.author == user %}
       <!-- Show edit and delete buttons only if the user is the author -->
       <div class="absolute bottom-0 left-0 right-0 px-12 py-8 bg-black bg-opacity-80 z-10 flex justify-center gap-8">
-        <a href="{% url 'edit_submission' cosplay_submission.id %}" class="text-center flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
+        <a href="{% url 'edit_submission' cosplay_submission.pk %}?edit_mode=True" class="text-center flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
           Edit submission
         </a>
         <a class="text-center flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
@@ -67,7 +67,8 @@
     {% if cosplay_submission.author == user %}
       <!-- Show edit and delete buttons only if the user is the author -->
       <div class="absolute bottom-0 left-0 right-0 px-12 py-8 bg-black bg-opacity-80 z-10 flex justify-center gap-8">
-        <a href="{% url 'edit_submission' cosplay_submission.id %}" class="text-center flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
+        <!-- if the user is in edit mode, submitting will update the database content   -->
+        <a href="{% url 'edit_submission' cosplay_submission.pk %}?edit_mode=True" class="text-center flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
           Edit submission
         </a>
         <a class="text-center flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">

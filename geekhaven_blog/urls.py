@@ -18,5 +18,5 @@ urlpatterns = [
     ),
     path("", views.BlogGrid.as_view(), name="homepage"),
     path("<slug:slug>/", views.view_blog_post, name="view_blog_post"),
-    path('edit_submission/<int:pk>/', views.edit_submission, name='edit_submission'),
+    path("edit_submission/<int:pk>/", views.update_submission, name="edit_submission"),
 ]
