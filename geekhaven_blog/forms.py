@@ -11,22 +11,22 @@ class CosplaySubmissionForm(forms.ModelForm):
             Attrs are mostly classes with the standard input placeholder text
         """
         widgets = {
-            'image': forms.FileInput(
+            "image": forms.FileInput(
                 attrs={
-                    'class': 'block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
-                    'placeholder': 'Image'
+                    "class": "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                    "placeholder": "Image",
                 }
             ),
-            'character': forms.TextInput(
+            "character": forms.TextInput(
                 attrs={
-                    'class': 'block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
-                    'placeholder': 'Character Name'
+                    "class": "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                    "placeholder": "Character Name",
                 }
             ),
-            'description': forms.Textarea(
+            "description": forms.Textarea(
                 attrs={
-                    'class': 'block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
-                    'placeholder': 'Description'
+                    "class": "block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                    "placeholder": "Description",
                 }
-            )
+            ),
         }
