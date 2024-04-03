@@ -7,6 +7,7 @@
   class="mx-auto my-8 w-11/12 self-start text-purple-heart-300 md:w-8/12 lg:w-8/12"
 >
   <section class="flex flex-row border-2 border-solid border-purple-heart-500">
+    <!-- Displays heading image and text -->
     <h2 class="bg-gray-900 text-center text-2xl font-bold">
       {{ blog_post.blog_heading }}
     </h2>
@@ -17,21 +18,14 @@
     />
   </section>
 
+  <!-- Displays posts' author and published date-->
   <section class="flex">
     <h2>By {{ blog_post.blog_author }} </h2>
     <div> Published on {{ blog_post.creation_date }} </div>
-    <!--<div> | Chats ((number here))</div>-->
   </section>
   <br />
+  <!-- Display blog content -->
   <section class="">{{ blog_post.blog_content|safe}}</section>
 </section> 
 
-<!--comments box
-<section>
-  <div>
-    {% include 'comment_section.html' %}
-    
-  </div>
-</section>
- -->
 {% endblock %}

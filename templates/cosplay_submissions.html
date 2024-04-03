@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {% block cosplay_submissions %}
 
-<!-- cosplay submission form -->
+<!-- Cosplay submission form -->
 
 <div
   class="mx-auto my-8 grid grid-cols-3 gap-6 lg:pr-3 md:pr-3 grow-0 w-8/12 rounded-lg border-4 border-solid border-purple-heart-500 bg-purple-heart-50 shadow">
@@ -12,7 +12,7 @@
     </div>
     <img class="preview-image hidden inset-0 h-full w-full rounded-bl-sm rounded-tl-sm object-cover z-10 relative"
       src=""
-      alt="" />
+      alt="Preview window of chosen uploaded file" />
   </div>
 
   <div class="flex flex-1 flex-col justify-center px-4 py-12 lg:flex-none col-span-3 lg:col-span-1 md:col-span-2">
@@ -24,30 +24,27 @@
       <div class="mt-10">
         <form enctype="multipart/form-data" method="POST" class="space-y-6 text-gray-900">
           {% csrf_token %}
-          {% if edit_mode %}
           {% for field in form %}
           <div>
             <label class="block text-sm font-medium leading-6 text-gray-900" for="{{ field.name }}">{{ field.label }}</label>
             {{ field }}
             {% if field.name == "image" %}
-            <input type="hidden" name="{{field.name}}-current" class="preview-current-image" value="{{ field.value.url }}" />
+            <input type="hidden" name="{{ field.name }}-current" class="preview-current-image" value="{{ field.value.url }}" />
             {% endif %}
           </div>
           {% endfor %}
-          {% else %}
+
           {% for field in cosplay_submission_form %}
           <div>
             <label class="block text-sm font-medium leading-6 text-gray-900" for="{{ field.name }}">{{ field.label }}</label>
             {{ field }}
           </div>
-          {% endfor %}
-          {% endif %}
-          
+          {% endfor %}          
 
           <div>
             <button type="submit"
               class="flex w-full justify-center rounded-md bg-purple-heart-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-heart-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
-              Submit!
+              Submit
             </button>
           </div>
         </form>
