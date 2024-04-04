@@ -117,7 +117,7 @@ The imagery for the blog will either be photographs from my projects, free image
 
 Here are the pages to match against the wireframes (as cosplay submissions was a last minute panic to ensure I had an adequate unique model, I didn't get time to create a wireframe for it):
 
-[Live site screenshots compliation to not flood ReadMe]()
+[Live site screenshots compliation to not flood ReadMe](https://github.com/emmy-codes/geekhaven-blog/blob/main/live-site-screenshots.md)
 
 ## Features
  The website consists of several key pages:
@@ -315,7 +315,7 @@ For cloning the repo you will need:
 
 ## Testing
 
-Please refer to the [TESTING.md](https://github.com/) file for all testing carried out.  
+Please refer to the [Testing MD file](https://github.com/emmy-codes/geekhaven-blog/blob/main/TESTING.md) for manual testing
 
 ## Bug Fixes
 
