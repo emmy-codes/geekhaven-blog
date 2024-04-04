@@ -8,7 +8,7 @@
 >
   <section class="flex flex-row border-2 border-solid border-purple-heart-500">
     <!-- Displays heading image and text -->
-    <h2 class="bg-gray-900 text-center text-2xl font-bold">
+    <h2 class="bg-gray-900 text-center text-2xl font-bold flex items-center">
       {{ blog_post.blog_heading }}
     </h2>
     <img
@@ -19,8 +19,8 @@
   </section>
 
   <!-- Displays posts' author and published date-->
-  <section class="flex">
-    <h2>By {{ blog_post.blog_author }} </h2>
+  <section class="flex justify-between">
+    <h2 class="mr-4 shrink-0">By {{ blog_post.blog_author }} </h2>
     <div> Published on {{ blog_post.creation_date }} </div>
   </section>
   <br />
