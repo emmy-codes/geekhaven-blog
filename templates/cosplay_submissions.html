@@ -58,7 +58,7 @@
           const preview = document.querySelector('img.preview-image');
           const previewLoaded = document.querySelector('input.preview-current-image');
           
-          if (previewLoaded) {
+          if (previewLoaded.value) {
             preview.src = previewLoaded.value;
             preview.classList.remove('hidden');
           }
