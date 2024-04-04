@@ -60,6 +60,11 @@ def cosplay_hall_of_fame(request):
         },
     )
 
+    if request.user.is_authenticated:
+        for cosplay_submission in user_submissions:
+            cosplay_submission.delete_url = reverse('delete_submission', kwargs={'pk': cosplay_submission.pk})
+
+    return render(request, 'cosplay_hall_of_fame.html', context) 
 
 @csrf_protect
 # allows edit and delete on user submission
@@ -114,4 +119,5 @@ def delete_submission(request, pk):
         CosplaySubmission, pk=pk, author=request.user
     )
     submission.delete()
+    messages.success(request, "Your cosplay submission has been deleted.")
     return redirect("cosplay_hall_of_fame")
