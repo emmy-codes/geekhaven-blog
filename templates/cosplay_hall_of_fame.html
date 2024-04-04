@@ -25,7 +25,7 @@
         <a href="{% url 'edit_submission' cosplay_submission.pk %}" class="text-center flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
           Edit submission
         </a>
-        <a href="{% url 'delete_submission' cosplay_submission.pk %}" class="text-center flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+        <a href="#" onclick="return confirmSubmissionDelete('{% url 'delete_submission' cosplay_submission.pk %}') " href="{% url 'delete_submission' cosplay_submission.pk %}" class="text-center flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
           Delete submission
         </a>
       </div>
@@ -72,7 +72,7 @@
         <a href="{% url 'edit_submission' cosplay_submission.pk %}" class="text-center flex-grow rounded-md border border-purple-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-purple-700 shadow-sm hover:bg-purple-heart-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-heart-600">
           Edit submission
         </a>
-        <a class="text-center flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+        <a href="#" onclick="return confirmSubmissionDelete('{% url 'delete_submission' cosplay_submission.pk %}') " class="text-center flex-grow rounded-md border border-red-600 bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-red-700 shadow-sm hover:bg-red-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
           Delete submission
         </a>
       </div>
@@ -92,5 +92,16 @@
   </section>
 {% endif %}
 
+<!-- Add confirmation window to cosplay deletion -->
+<script>
+
+function confirmSubmissionDelete() {
+    if (confirm("Are you sure you wish to delete this cosplay submission?")) {
+        window.location.href = deleteUrl; // 
+    }
+    return false;
+}
+
+</script>
 </section>
 {% endblock %}
