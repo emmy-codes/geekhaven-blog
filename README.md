@@ -3,7 +3,8 @@
 
 # GeekHaven - Personal Blog
 
-![geekhaven-blog-cosplay-and-gaming-community](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/a554a19d-65ff-471e-9664-3a5f9bb322dc)
+![geekhaven-blog-cosplay-and-gaming-community](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/bea14448-a0f5-4993-ac9a-f0a5c75fdfdf)
+)
 
 
 Visit the deployed site: https://geekhaven-ab6b47c83d52.herokuapp.com/
@@ -114,6 +115,10 @@ The imagery for the blog will either be photographs from my projects, free image
 ![sign up page](https://github.com/emmy-codes/windows-95/assets/70635859/cee5ffd1-2713-426a-84b3-f2671627de18)
 ![homepage](https://github.com/emmy-codes/windows-95/assets/70635859/d02a8b57-8332-4cca-8aaa-c474c48c22fb)
 
+Here are the pages to match against the wireframes (as cosplay submissions was a last minute panic to ensure I had an adequate unique model, I didn't get time to create a wireframe for it):
+
+[Live site screenshots compliation to not flood ReadMe]()
+
 ## Features
  The website consists of several key pages:
 
@@ -125,7 +130,7 @@ The imagery for the blog will either be photographs from my projects, free image
 ![login_screen](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c0dc610c-c7d4-4c09-af1a-a5110eefdcd5)
 * .... which leads on to this feature, cosplay submissions. Authenticated users can upload an image with a description and character name. Submissions will be pending until an admin has approved them.
 * Cosplay Hall of Fame: Published submissions  (and the user's own pending submissions) can be viewed on this page.
-* Editing submissions - Authenticated users can also edit their submissions at any time by going to the Hall of Fame. This will redirect them to the cosplay submissions page, but with the prepopulated form data from their original submission.
+* Editing submissions - Authenticated users can also edit their submissions at any time by going to the Hall of Fame. This will redirect them to the cosplay submissions page but with the prepopulated form data from their original submission.
 
 
 - - - 
@@ -179,7 +184,7 @@ One of the first issues I encountered was setting up my blog post class. After a
 
 I checked my class on models.py - there was my blog_content attribute! But it wasn't showing up on the admin panel... so I checked my migration 0001_initial.py and checked what had been migrated.
 No blog_post.
-This led me to do a quick check and yes, it was mean to have brackets on the end of my TextField type. A small error that wasn't picked up in any code compiling but still caused an undesired result. All it took was a () (and a default parameter) and a new migration to fix!
+This led me to do a quick check and yes, it was meant to have brackets on the end of my TextField type. A small error that wasn't picked up in any code compiling but still caused an undesired result. All it took was a () (and a default parameter) and a new migration to fix!
 
 ![bug1 textfield issue](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c83d2c81-8ba1-41cd-b070-1a35f1f42c7f)
 
@@ -234,7 +239,7 @@ Once the app was made I went to my dashboard where I can see my apps.
 
 ![deployment_step_10](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/05cd3c9a-f252-4d98-a6c5-9400a6338c4b)
 
-11. In order to keep my files safe when deployed, in my settings I changed DEBUG to False to prevent excessive information being shown when errors occurred which could potentially give people unwanted access. I then updated my ALLOWED_HOSTS list to include my Heroku deployment links.
+11. To keep my files safe when deployed, in my settings I changed DEBUG to False to prevent excessive information from being shown when errors occurred which could potentially give people unwanted access. I then updated my ALLOWED_HOSTS list to include my Heroku deployment links.
 12. Back on Heroku I switched to the Deployment tab and connected Github as the Deployment method. I searched my repository name and connected it.
 
 ![deployment_step_12](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/aba54a9b-9436-4ad9-9e1c-6985be01cdce)
@@ -267,7 +272,7 @@ Firstly, go to https://github.com/emmy-codes/geekhaven-blog/
 
 3. Check the box here if you want to make a copy of the main branch or multiple branches (main is selected by default).
 
-4. Create the fork. Screenshot is from an old project as I cannot fork my Python project due to not having any organizations connected to my account, and presumably because this repo is already a fork of the CI template.
+4. Create the fork. The screenshot is from an old project as I cannot fork my Python project due to not having any organizations connected to my account, and presumably because this repo is already a fork of the CI template.
  
  ![rsz_fork__steps](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/aa4dae7c-807d-4108-bb5b-f24c7010514b)
 
@@ -316,80 +321,73 @@ Please refer to the [TESTING.md](https://github.com/) file for all testing carri
 
 As I am making a blog I am very mindful of trying to keep my project as far separated as I can from the walkthrough from CI, whilst still using it as an assist tool.
 
-I am ensuring that I change any naming conventions, both to help me understand what the code does, and to force me to have a more in-depth understanding of the codebase rather than copying the same names as CI.
+I am ensuring that I change any naming conventions, both to help me understand what the code does and to force me to have a more in-depth understanding of the codebase rather than copying the same names as CI.
 
 This comes with its own set of problems when I don't fully understand something, as was proved when I attempted to append my blog posts to the HTML page I had created. I thought I had labelled everything correctly but received an error when attempting to run my server:
 
 ![appending_posts_to_dom](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/8b4abf41-64ef-4a03-95bd-1a4bb8bb2d0e)
 
-It was telling me that blogpost_list.html didn't exist, which was entirely true. It was looking in geekhaven_blog/blogpost_list.html because ListView was looking for a file of the same name, aka my BlogPost class. After some research I discovered it also expected geekhaven_blog to be a folder inside of my templates, which I was missing.
+It was telling me that blogpost_list.html didn't exist, which was entirely true. It was looking in geekhaven_blog/blogpost_list.html because ListView was looking for a file of the same name, aka my BlogPost class. After some research, I discovered it also expected geekhaven_blog to be a folder inside of my templates, which I was missing.
 
 After making the above changes my server was once again loading!
 
-Some time after I had successfully appended the Cloudinary images to my homepage blog post views, I noticed that the first blog post was loading a <p> tag at the start of the excerpt, despite there not being one in the TextField of the admin panel.
+Sometime after I had successfully appended the Cloudinary images to my homepage blog post views, I noticed that the first blog post was loading a <p> tag at the start of the excerpt, despite there not being one in the TextField of the admin panel.
 
 ![p_tag_showing_on_first_blog_post](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ddc16ebc-83bf-41fe-bf08-e8fbaab2aa20)
 
 I took a look at my blogpost_list.html to try and figure out what was happening, but there are no mentions of p tags in the rendering of the blog content. I thought the truncate attribute might have impacted it in some way since it was the only tag to use it, but since that only limits the amount of text content visible, it turned out not to have any impact.
 
-I then took a look at my admin panel, sure enough, no p tags showing. BUT when clicking on the Code View button I could see these p tags sure enough!
+I then took a look at my admin panel, and sure enough, no p tags showing. BUT when clicking on the Code View button I could see these p tags sure enough!
 
 
 ![p_tag_showing_on_first_blog_post_2](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/b1b83163-c5b2-4d9e-89fc-85fc3b44ba27)
 
-It was the only one showing and I thought perhaps there was some bug/issue with it being the first post available. Then I realised it was the first post I had made after installing Summernote.... sure enough, when I looked into the error I found out the tags were being auto inserted because of the WYSIWYG of Summernote.
+It was the only one showing and I thought perhaps there was some bug/issue with it being the first post available. Then I realised it was the first post I had made after installing Summernote.... sure enough, when I looked into the error I found out the tags were being auto-inserted because of the WYSIWYG of Summernote.
 
-Thankfully there was a quick fix, since it's not possible to remove the tags manually from the admin post as they get reapplied. Simply putting "|striptags" on my excerpt stopped the tags being appended to the page. Result!
+Thankfully there was a quick fix since it's not possible to remove the tags manually from the admin post as they get reapplied. Simply putting "|striptags" on my excerpt stopped the tags being appended to the page. Result!
 
-Bug 3: The next problem was when I realised that I needed to remove the block of code that was rendering the thumbnails of the blogs to my homepage since Django wants every template to only serve one purpose. I remember a bit of trouble getting the initial render and having to rename my html file to match somewhere else to make it render... but where?
+Bug 3: The next problem was when I realised that I needed to remove the block of code that was rendering the thumbnails of the blogs to my homepage since Django wants every template to only serve one purpose. I remember a bit of trouble getting the initial render and having to rename my HTML file to match somewhere else to make it render... but where?
 
 ![bug_3_template_not_exist (1)](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/4e0379f1-7ed2-4006-b78c-5256e173f27b)
 
-Reading the error I could tell 2 things: Which part of the code that was firing the error, and the error name. I went to my BlogGrid class on views.py and looked at my recently added attribute: template_name which was pointing to geekhaven/templates/index.html as the html files are in a folder, it seemed logical. Yet changing it to just index.html allowed some of the content to render..... some.
+Reading the error I could tell 2 things: Which part of the code that was firing the error, and the error name. I went to my BlogGrid class on views.py and looked at my recently added attribute: template_name which was pointing to geekhaven/templates/index.html as the HTML files are in a folder, it seemed logical. Yet changing it to just index.html allowed some of the content to render..... some.
 
 ![bug_3_progress](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/8ce3684b-0cef-4700-9978-9e6455c035b7)
 
-On to bug 4... this was clearly not rendering any css, nor my blogpost_list.html content.
+On to bug 4... this was clearly not rendering any CSS, nor my blogpost_list.html content.
 
 I had a quick Google around to try and find a starting point and came across a post that mentioned starting my TailwindCSS with the command python3 manage.py start. When I did that I got a massive list of errors but one stuck out "Cannot find module 'postcss-simple-vars'". It mentioned the build failing in a folder I had, that didn't contain the file it was looking for. Strange when it worked when everything was in one HTML file.
 
-Aha! In my tailwind.config.js file I was referencing a folder, geekhaven_blog which I recently removed as it seemed redundant inside my templates folder.  ~~This didn't help a bit, but I'm sure it will prevent another error down the line.~~ Ahaaaa! False alarm, my computer bugged out with the port open so the localhost server wasn't working properly, after a reboot I'm back to what I expected to see after moving my bloglist out of the homepage. Success!
+Aha! In my tailwind.config.js file, I was referencing a folder, geekhaven_blog which I recently removed as it seemed redundant inside my templates folder.  ~~This didn't help a bit, but I'm sure it will prevent another error down the line.~~ Ahaaaa! False alarm, my computer bugged out with the port open so the localhost server wasn't working properly, after a reboot I'm back to what I expected to see after moving my bloglist out of the homepage. Success!
 
 
 ![bug4_success](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/7c42e778-a08f-44aa-b24d-4435a5da34d5)
 
 Hello bug5, my old friend...
 
-I was going to consider bug 4 my final explanation to show my thought process on problem solving, but this bug required me to make a lot of commits so it felt like something I shouldn't glaze over when it comes to looking at my commit history. All was looking well on my deployment, but as soon as I deployed the logo on my header threw a 404 error.
+I was going to consider bug 4 my final explanation to show my thought process on problem-solving, but this bug required me to make a lot of commits so it felt like something I shouldn't glaze over when it comes to looking at my commit history. All was looking well on my deployment, but as soon as I deployed the logo on my header threw a 404 error.
 
-I dug into my code and the Heroku logs. The logs showed that Heroku couldn't find the logo at the path I had specified. I tried running the collectstatic command but that checked 209 files and adjusted none due to finding another file with the destination path. It was referencing a load of admin css files that came from Tailwind which was equally confusing and not necessarily related to my issue.
+I dug into my code and the Heroku logs. The logs showed that Heroku couldn't find the logo on the path I had specified. I tried running the collectstatic command but that checked 209 files and adjusted none due to finding another file with the destination path. It was referencing a load of admin css files that came from Tailwind which was equally confusing and not necessarily related to my issue.
 
-I thought back to when I had first created the project and installed Tailwind CSS and then Django Tailwind on top of that, got caught up and carried on. I thought "I'll try uninstalling django-tailwind to see if that helps" it definitely didn't! It took a lot of my regular Tailwind files so I ran a pip install just for tailwind.
+I thought back to when I had first created the project and installed Tailwind CSS and then Django Tailwind on top of that, got caught up and carried on. I thought "I'll try uninstalling django-tailwind to see if that helps" it definitely didn't! It took a lot of my regular Tailwind files so I ran a pip install just for Tailwind.
 
 I redeployed and received the following error:
 
 ![bug_5_-_tailwind](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/4f5f575c-1e77-4e44-aa1f-7911ff705fb3)
 
-I checked the requirements.txt file and saw tailwindcss was marked with version 0.0.1 which seemed really off. I tried updating it to the latest version on the Tailwind site. No luck. Next I tried updating Tailwind with an npm install from the site. Nothing. So I reverted back to the version that was automatically assigned.
+I checked the requirements.txt file and saw that tailwindcss was marked with version 0.0.1 which seemed off. I tried updating it to the latest version on the Tailwind site. No luck. Next, I tried updating Tailwind with an npm install from the site. Nothing. So I reverted to the version that was automatically assigned.
 
 ![bug_5_-_tailwind_commits](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/abe09b9f-e883-41fa-a32d-54b26eb85a84)
 
 I also updated the source on the image element to include Django's {% static %} parenthesis to see if it could help. After running a reinstall of tailwind css I ran the collectstatic command again and received a new error (that's what programmers call progress!) it said it couldn't find django_tailwindcloudinary_storage. A missing dependency? No, a missing comma on my INSTALLED_APPS list. Trying again I received a similar error for 'django_tailwind' uninstalling didn't remove it from my installed apps so removing it allowed the page to load correctly, logo and all! ...... ON LOCAL HOST
 
-I had also made 2 small changes on my settings.py, namely removing the leading slash on the STATIC_URL, and returning my STATICFILES_DIRS to having square brackets rather than regular which was a small change I made whilst trying to solve it and since it didn't give a direct error, I thought it didn't matter which.
+I also made 2 small changes on my settings.py, namely removing the leading slash on the STATIC_URL, and returning my STATICFILES_DIRS to having square brackets rather than regular which was a small change I made whilst trying to solve it since it didn't give a direct error, I thought it didn't matter which.
 
 Dejected, I returned to https://django-tailwind.readthedocs.io/en/latest/installation.html and https://tailwindcss.com/docs/installation to reinstall django tailwind and check everything on regular tailwind was up to date. Installing it didn't break anything at least!
 
-This project is definitely challenging, and I've stumbled onto more errors than I've seen in all 3 projects together x4 or more. So I couldn't possibly talk about all of them, but this next one felt like a good one to tackle.
+This project is challenging, and I've stumbled onto more errors than I've seen in all 3 projects together x4 or more. So I couldn't possibly talk about all of them, but this next one felt like a good one to tackle.
 
 Account creation. I went blindly into this, seemingly having forgotten everything about creating an account using Django. I tried winging a class-based model with a similar layout to the blog post list and blog posts, then tried creating a function to store the data. I simply can't try to wrangle Django without support, so I had a look on multiple different websites, trying to Frankenstein a working product together.
-
-[Django form validation using form.clean](https://docs.djangoproject.com/en/5.0/ref/forms/api/#using-forms-to-validate-data)
-[Django cleaning and validating forms](https://docs.djangoproject.com/en/5.0/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other)
-[Django Form Validation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/)
-[Django URL usage for the HTML](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#url)
-
-All hail Django documentation! I tried to piece together what I thought I needed for the login page to begin working, but stumbled upon a host of errors. 
 
 - - -
 
@@ -397,9 +395,16 @@ All hail Django documentation! I tried to piece together what I thought I needed
   
 [DaisyUI walkthrough for Django and Tailwind](https://django.wtf/blog/django-alerts-with-tailwind-and-daisyui/) and [Django documentation](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/) for my alert messages
 
-My amazing partner and his error interpretation skills, and extra help putting together the form after I broke it implementing submission edit functionality!
+My amazing partner and his error interpretation skills, and extra help putting together the form after I broke it implementing submission edit functionality! Who also gave me a crash course in Tailwind CSS and helped to speed up my use of this new tool.
 
 [This forum post](https://stackoverflow.com/questions/65730017/using-widgets-to-change-the-css-of-label-in-django-forms/65730427#65730427) and [More Django documentation](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/) for researching widgets to be able to customise the submission forms' CSS.
+
+A whole lot of Django documentation for forms!
+
+[Django form validation using form.clean](https://docs.djangoproject.com/en/5.0/ref/forms/api/#using-forms-to-validate-data)
+[Django cleaning and validating forms](https://docs.djangoproject.com/en/5.0/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other)
+[Django Form Validation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/)
+[Django URL usage for the HTML](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#url)
 
 ### Code Used
 
@@ -415,6 +420,5 @@ I would like to acknowledge the following people:
 
 * My partner who, despite having no idea about Python, has done his best to support me in my learning 🥰
 
-* Family and friends on Facebook for user testing my game and providing feedback!
 * community-sweden on Slack for becoming an amazing community space, leading to online and IRL study sessions! Many of us were doing P4 at the same time and it was great to talk with fellow students about project woes.
 
