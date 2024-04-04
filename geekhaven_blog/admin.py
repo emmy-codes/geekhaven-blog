@@ -19,3 +19,4 @@ class AdminSearchOption(SummernoteModelAdmin):
         # assigns the use of summernote only to the blog_content field
         "blog_content"
     )
+    

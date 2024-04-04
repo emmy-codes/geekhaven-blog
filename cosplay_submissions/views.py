@@ -10,16 +10,20 @@ def cosplay_submissions(request):
     # place for users to upload their cosplays
     if request.method == "POST":
         # request.FILES is how Django handles file uploads
-        cosplay_submission_form = CosplaySubmissionForm(request.POST, request.FILES)
+        cosplay_submission_form = CosplaySubmissionForm(
+            request.POST, request.FILES
+        )
         if cosplay_submission_form.is_valid():
             # create form submission without submitting
-            cosplay_submission = cosplay_submission_form.save(commit=False)
+            cosplay_submission = cosplay_submission_form.save(
+                commit=False
+            )
             cosplay_submission.author = request.user
             cosplay_submission.approval_state = False
             cosplay_submission.save()
             messages.success(
                 request,
-                "Your submission has been sent to an admin and is pending approval",
+                "Your submission has been sent to an admin and is pending approval",  # noqa
             )
             return redirect("cosplay_hall_of_fame")
     else:
@@ -61,16 +65,20 @@ def cosplay_hall_of_fame(request):
 # allows edit and delete on user submission
 def update_submission(request, pk):
     # ensuring request is from the post author
-    submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
+    submission = get_object_or_404(
+        CosplaySubmission, pk=pk, author=request.user
+    )
 
     if request.method == "POST":
-        form = CosplaySubmissionForm(request.POST, request.FILES, instance=submission)
+        form = CosplaySubmissionForm(
+            request.POST, request.FILES, instance=submission
+        )
         if form.is_valid():
             form.save()
             submission.approval_state = False
             submission.save(update_fields=["approval_state"])
             messages.success(
-                request, "Your submission has been updated and is pending admin appoval"
+                request, "Your submission has been updated and is pending admin appoval"  # noqa
             )
             return redirect("cosplay_hall_of_fame")
     else:
@@ -82,8 +90,9 @@ def update_submission(request, pk):
     )
 
 
-""" Edit the pending or published cosplay submission by sending the user to the 
+""" Edit the pending or published cosplay submission by sending the user to the
 cosplay_submission form with the data from the appended submission """
+
 
 @csrf_protect
 def edit_submission(request, pk):
@@ -100,7 +109,9 @@ def edit_submission(request, pk):
 
 @csrf_protect
 def delete_submission(request, pk):
-    
-    submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
+
+    submission = get_object_or_404(
+        CosplaySubmission, pk=pk, author=request.user
+    )
     submission.delete()
     return redirect("cosplay_hall_of_fame")
