@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, CosplaySubmission
+from .models import BlogPost
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -19,16 +19,3 @@ class AdminSearchOption(SummernoteModelAdmin):
         # assigns the use of summernote only to the blog_content field
         "blog_content"
     )
-
-
-class AdminApproveCosplaySubmissions(admin.ModelAdmin):
-    list_display = ("author", "character", "submission_date", "approval_state")
-
-    actions = ["approve_cosplay_submissions"]
-
-    def approve_cosplay_submissions(self, request, queryset):
-        queryset.update(approval_state=True)
-
-
-# admin.site.register(BlogComment)
-admin.site.register(CosplaySubmission, AdminApproveCosplaySubmissions)
