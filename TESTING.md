@@ -1,5 +1,32 @@
 # Manual Testing
 
+## Lighthouse results
+
+Lighthouse results were good overall, but I hadn't taken into consideration the size of the image uploads from community members, so without proper functionality on the media uploads, the score is brought down.
+
+![hall_of_fame_mobile](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/983e2084-c1d6-4a90-b6e3-bb565c5c8336)
+![home_desktop](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c9194e39-9f47-456f-a079-eee4b89fabc8)
+![home_mobile](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/f3cd54b7-b0f9-4c60-944b-ae34b66738f4)
+![blog_post_desktop](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/b5295045-e90c-4645-8c1e-b33de00fe496)
+![blog_post_mobile](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/6ce9c8be-23ac-4a0d-bd64-865498e6277d)
+![hall_of_fame_desktop](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/cb065cea-c78a-4c70-841f-1a16cfb902a6)
+
+## HTML Validator
+
+There were a couple of errors I would have liked to fix, but I focused on removing the errors (see latest commits for HTML validator fixes) one remained regarding the img tag on my cosplay submissions but by nature this doesn't have a source attribute by default as it's an image upload from the user, so I didn't see a way around that at this time.
+
+![register_report](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/8f62143f-988f-4d87-af0d-c5c4e4988de0)
+![submission_report](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/ea09bd33-09da-4a73-8281-c59118921c61)
+![blog_post_report](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/9fa9add3-ff63-4ee7-a768-4f8517620913)
+![hall_of_fame_report](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/f83aa6da-97d5-4336-894b-7ba5bc89f299)
+![home_report](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/f9f67af9-c977-4631-94fa-02c0fc7a5c7a)
+![login_report](https://github.com/emmy-codes/geekhaven-blog/assets/70635859/c4afbc5b-8d8e-466c-b5e4-ed39c84749dc)
+
+
+## Pep8 results
+
+All .py files were run through the CI Linter and any adjustments to curb the 80 character limit were implemented. A couple of # noqa was added to comments or lines I couldn't see a way to split without breaking functionality.
+
 ## Home Page Testing
 | Description | Steps | Expected Result | Actual Result |
 | -------------|-------|-----------------|---------------|
