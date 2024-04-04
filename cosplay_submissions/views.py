@@ -4,6 +4,7 @@ from .models import CosplaySubmission
 from .forms import CosplaySubmissionForm
 from django.contrib import messages
 
+
 @csrf_protect
 def cosplay_submissions(request):
     # place for users to upload their cosplays
@@ -84,7 +85,7 @@ def update_submission(request, pk):
 """ Edit the pending or published cosplay submission by sending the user to the 
 cosplay_submission form with the data from the appended submission """
 
-
+@csrf_protect
 def edit_submission(request, pk):
 
     submission = get_object_or_404(CosplaySubmission, pk=pk)
@@ -95,3 +96,11 @@ def edit_submission(request, pk):
         "cosplay_submissions.html",
         {"form": form, "submission": submission, "edit_mode": True},
     )
+
+
+@csrf_protect
+def delete_submission(request, pk):
+    
+    submission = get_object_or_404(CosplaySubmission, pk=pk, author=request.user)
+    submission.delete()
+    return redirect("cosplay_hall_of_fame")
